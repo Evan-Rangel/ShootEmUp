@@ -2,19 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 public class UIManager : MonoBehaviour
 {
+    [Header ("From UI")]
     [SerializeField] Text scoreText;
     [SerializeField] Text levelText;
     [SerializeField] Image[] buffsImages;
     [SerializeField] Image[] playerImage;
     [SerializeField] Image lifeBar;
 
+    [Header("From Pause Canvas")]
+    [SerializeField] GameObject PanelUI;
+    [SerializeField] GameObject PanelPause;
+    [SerializeField] PlayerInput playerInput;
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         for (int i = 0; i < buffsImages.Length; i++)
         {
             buffsImages[i].enabled = false;
+        }
+    }
+    private void Update()
+    {
+        ActivePause();
+    }
+
+    public void ActivePause()
+    {
+        if (playerInput.actions["Pause"].WasPressedThisFrame())
+        {
+            Debug.Log("Pause...");
+            PanelUI.GetComponent<Animator>().SetBool("Pause", !PanelUI.GetComponent<Animator>().GetBool("Pause"));
+            PanelPause.GetComponent<Animator>().SetBool("Pause", !PanelPause.GetComponent<Animator>().GetBool("Pause"));
         }
     }
     public void ActiveImage(Image imageToPuth)

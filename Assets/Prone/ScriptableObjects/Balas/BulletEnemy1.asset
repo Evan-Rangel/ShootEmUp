@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9195fe8c2ebe11448493ea37e92cfae, type: 3}
+  m_Name: BulletEnemy1
+  m_EditorClassIdentifier: 
+  bulletName: BulletEnemy1
+  description: Disparo del primer tipo de enemigo
+  tagName: BulletEnemy1
+  bulletType: 1
+  bulletDamage: 1
+  bulletSpeed: 2
+  animator: {fileID: 9100000, guid: 5262b7bd8a2f14f4d84d96fd95a076f5, type: 2}
+  sprite: {fileID: 888726064, guid: 36ab1b2899733fc45bc0c773ffcbffbe, type: 3}

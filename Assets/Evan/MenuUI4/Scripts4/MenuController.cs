@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Animations;
 public class MenuController : MonoBehaviour
 {
     private enum PanelSelector
@@ -32,14 +34,15 @@ public class MenuController : MonoBehaviour
     [SerializeField] Button creditsButton;
 
     [SerializeField] Button firstResButton;
+    [SerializeField] Button firstQuaButton;
+
 
 
     [Header("Texts")]
-    public  Text resolutionText;
+    public Text resolutionText;
+    public Text qualityText;
 
     PanelSelector panelSelector= PanelSelector.Principal;
-    GameObject previousPanel;
-    GameObject currentPanel;
     Vector2 resValue;
     public string resolution;
     private void Awake()
@@ -49,6 +52,7 @@ public class MenuController : MonoBehaviour
     private void Start()
     {
         resolution = Screen.currentResolution.ToString();
+        SetQualityText();
     }
     private void Update()
     {
@@ -60,11 +64,13 @@ public class MenuController : MonoBehaviour
                     menuPanel.SetActive(true);
                     settigsPanel.SetActive(false);
                     settingsButton.Select();
+                    panelSelector = PanelSelector.Principal;
                     break;
                 case PanelSelector.Credits:
                     menuPanel.SetActive(true);
                     creditsPanel.SetActive(false);
                     creditsButton.Select();
+                    panelSelector = PanelSelector.Principal;
                     break;
                 case PanelSelector.Resolution:
                     resolutionPanel.SetActive(false);
@@ -79,7 +85,32 @@ public class MenuController : MonoBehaviour
             }
         }
     }
-
+    void SetQualityText()
+    {
+        switch (QualitySettings.GetQualityLevel())
+        {
+            case 0:
+                qualityText.text = "Very Low Quality";
+                break;
+            case 1:
+                qualityText.text = "Low Quality";
+                break;
+            case 2:
+                qualityText.text = "Medium Quality";
+                break;
+            case 3:
+                qualityText.text = "High Quality";
+                break;
+            case 4:
+                qualityText.text = "Very High Quality";
+                break;
+            case 5:
+                qualityText.text = "Ultra Quality";
+                break;
+            default:
+                break;
+        }
+    }
     public void StartGameButton()
     {
         Debug.Log("Loading Game...");
@@ -88,8 +119,6 @@ public class MenuController : MonoBehaviour
     {
         settigsPanel.SetActive(true);
         menuPanel.SetActive(false);
-        previousPanel = menuPanel;
-        currentPanel = settigsPanel;
         resolutionButton.Select();
         resolutionText.text = resolution;
         panelSelector = PanelSelector.Settings;
@@ -108,8 +137,6 @@ public class MenuController : MonoBehaviour
     public void ResolutionButton()
     {
         resolutionPanel.SetActive(true);
-        previousPanel = settigsPanel;
-        currentPanel = resolutionPanel;
         resolutionText.gameObject.SetActive(false);
         firstResButton.Select();
         panelSelector = PanelSelector.Resolution;
@@ -117,7 +144,24 @@ public class MenuController : MonoBehaviour
     }
     public void QualityButton()
     {
+        qualityPanel.SetActive(true);
+        qualityText.gameObject.SetActive(false);
+        panelSelector = PanelSelector.Quality;
+        firstQuaButton.Select();
+        Debug.Log("Quality...");
     }
+    public void SetQuality()
+    {
+        QualitySettings.SetQualityLevel(int.Parse (EventSystem.current.currentSelectedGameObject.name), true);
+        Debug.Log(QualitySettings.GetQualityLevel());
+        qualityPanel.SetActive(false);
+        qualityButton.Select();
+        qualityText.gameObject.SetActive(true);
+        SetQualityText();
+        panelSelector = PanelSelector.Settings;
+
+    }
+
     public void Resolution01()
     {
         resValue = new Vector2(854, 480);

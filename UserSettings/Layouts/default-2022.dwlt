@@ -19,7 +19,11 @@ MonoBehaviour:
     width: 1440
     height: 857
   m_ShowMode: 4
+<<<<<<< Updated upstream
   m_Title: Hierarchy
+=======
+  m_Title: Project
+>>>>>>> Stashed changes
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +52,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 81
+=======
+  controlID: 87
+>>>>>>> Stashed changes
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -112,12 +120,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< Updated upstream
     y: 587
     width: 1033
     height: 220
@@ -132,6 +141,19 @@ MonoBehaviour:
   - {fileID: 14}
   m_Selected: 1
   m_LastSelected: 2
+=======
+    y: 799
+    width: 1954
+    height: 548
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 12}
+  m_Panes:
+  - {fileID: 12}
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1016,9 +1038,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 1c6c0000
     m_LastClickedID: 27676
     m_ExpandedIDs: 00000000c46100000a6200007c76000000ca9a3b
+=======
+    m_SelectedIDs: 2a620000
+    m_LastClickedID: 25130
+    m_ExpandedIDs: 000000002a62000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1046,7 +1074,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 00000000c4610000
+=======
+    m_ExpandedIDs: 000000002a620000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1071,8 +1103,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< Updated upstream
     m_SelectedInstanceIDs: 78f3ffff
     m_LastClickedInstanceID: -3208
+=======
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+>>>>>>> Stashed changes
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -1491,9 +1528,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: 1507.9144, y: 1094.2645, z: -4.3950915}
     speed: 2
     m_Value: {x: 1455.211, y: 1082.566, z: -3.8330822}
+=======
+    m_Target: {x: 41.9142, y: 22.46999, z: -0.32167026}
+    speed: 2
+    m_Value: {x: 41.9142, y: 22.46999, z: -0.32167026}
+>>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1543,9 +1586,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< Updated upstream
     m_Target: 1305.1064
     speed: 2
     m_Value: 1248.9056
+=======
+    m_Target: 37.45317
+    speed: 2
+    m_Value: 37.45317
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 1
     speed: 2

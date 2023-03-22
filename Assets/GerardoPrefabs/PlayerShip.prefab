@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5981924268487618185}
   - component: {fileID: 5981924268487618184}
   - component: {fileID: 5981924268487618191}
+  - component: {fileID: 1559618978}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -300,4 +301,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpawn: 0.8
-  speed: 4
+  speed: 6
+--- !u!114 &1559618978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981924268487618188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b42a53d151705648b6bde06c1a72cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashingTime: 0.2
+  dashForce: 15
+  timeCanDash: 0

@@ -128,12 +128,10 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Credits...");
     }
-   
     public void ExitButton()
     {
         Debug.Log("Exit...");
     }  
-    
     public void ResolutionButton()
     {
         resolutionPanel.SetActive(true);
@@ -161,7 +159,6 @@ public class MenuController : MonoBehaviour
         panelSelector = PanelSelector.Settings;
 
     }
-
     public void Resolution01()
     {
         resValue = new Vector2(854, 480);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -16,8 +17,13 @@ public class PlayerDash : MonoBehaviour
     private bool canDash = true;
     public bool IsDashing => isDashing;
 
+    private bool dashingBool;
+
+    PlayerInput playerInput;
+
     private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         player = GetComponent<spaceship666>();
         baseGravity = rb.gravityScale;
@@ -25,11 +31,11 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (playerInput.actions["DashRight"].WasPressedThisFrame())
         {
             StartCoroutine(DashRight());
         }
-        if (Input.GetButtonDown("Fire3"))
+        if (playerInput.actions["DashLeft"].WasPressedThisFrame())
         {
             StartCoroutine(DashLeft());
         }

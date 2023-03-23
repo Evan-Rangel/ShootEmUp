@@ -7,7 +7,7 @@ public class ControladorDeEnemigos : MonoBehaviour
     [SerializeField] EnemyData enemyData;
     Vector2 startPoint;
     const float radius = 1;
-    float timer = 1f;
+    float timer;
     int angleSum = 0;
     int multiplicador;
 
@@ -17,6 +17,7 @@ public class ControladorDeEnemigos : MonoBehaviour
 
     private void Start()
     {
+        timer = enemyData.BulletTimer;
         colliderEnemigo = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
 
@@ -40,7 +41,7 @@ public class ControladorDeEnemigos : MonoBehaviour
         {
             SpawnProjectiles(angleSum);
             angleSum += multiplicador;
-            timer = 1f;
+            timer = 0.25f;
         }
     }
     //El enemigo muere se activa su animacion y se desactiva el collider para que no estorbe la bala luego de morir

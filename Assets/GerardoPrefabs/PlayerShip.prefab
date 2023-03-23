@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5981924268487618184}
   - component: {fileID: 5981924268487618191}
   - component: {fileID: 1559618978}
+  - component: {fileID: 1240629541}
+  - component: {fileID: 1240629540}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpawn: 0.8
   speed: 6
+  disparo: 0
 --- !u!114 &1559618978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,3 +320,51 @@ MonoBehaviour:
   dashingTime: 0.2
   dashForce: 15
   timeCanDash: 0
+--- !u!256 &1240629541
+FrictionJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981924268487618188}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -4.1}
+  m_MaxForce: 1
+  m_MaxTorque: 1
+--- !u!114 &1240629540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981924268487618188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9506067f65cd21f4cb0e8b1d971bf865, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

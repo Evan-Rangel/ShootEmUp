@@ -33,11 +33,37 @@ public class PlayerDash : MonoBehaviour
     {
         if (playerInput.actions["DashRight"].WasPressedThisFrame())
         {
-            StartCoroutine(DashRight());
+
+            if (player.DirectionX < 0f)
+            {
+                StartCoroutine(DashRightWhenMovingLeft());
+            }
+            else if (player.DirectionX > 0f)
+            {
+                StartCoroutine(DashRightWhenMovingRight());
+            }
+            else
+            {
+
+                StartCoroutine(DashRight());
+            }
+            
         }
+
         if (playerInput.actions["DashLeft"].WasPressedThisFrame())
         {
-            StartCoroutine(DashLeft());
+            if (player.DirectionX > 0f)
+            {
+                StartCoroutine(DashLeftWhenMovingRight());
+            }
+            else if (player.DirectionX < 0f)
+            {
+                StartCoroutine(DashLeftWhenMovingLeft());
+            }
+            else
+            {
+                StartCoroutine(DashLeft());
+            }
         }
     }
 
@@ -57,6 +83,39 @@ public class PlayerDash : MonoBehaviour
         
     }
 
+    private IEnumerator DashRightWhenMovingLeft()
+    {
+        if (/*player.DirectionX != 0 && */canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(player.DirectionX * dashForce + dashForce * 2f, player.DirectionY * player.Speed);
+            yield return new WaitForSeconds(dashingTime);
+            isDashing = false;
+            yield return new WaitForSeconds(timeCanDash);
+            canDash = true;
+        }
+
+    }
+
+    private IEnumerator DashRightWhenMovingRight()
+    {
+        if (/*player.DirectionX != 0 && */canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(player.DirectionX * dashForce + dashForce / 2f, player.DirectionY * player.Speed);
+            yield return new WaitForSeconds(dashingTime);
+            isDashing = false;
+            yield return new WaitForSeconds(timeCanDash);
+            canDash = true;
+        }
+
+    }
+
+
     private IEnumerator DashLeft()
     {
         if (/*player.DirectionX != 0 && */canDash)
@@ -64,7 +123,38 @@ public class PlayerDash : MonoBehaviour
             isDashing = true;
             canDash = false;
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(player.DirectionX * dashForce - dashForce * 1f, player.DirectionY * player.Speed);
+            rb.velocity = new Vector2(player.DirectionX * dashForce - dashForce, player.DirectionY * player.Speed);
+            yield return new WaitForSeconds(dashingTime);
+            isDashing = false;
+            yield return new WaitForSeconds(timeCanDash);
+            canDash = true;
+        }
+
+    }
+    private IEnumerator DashLeftWhenMovingRight()
+    {
+        if (/*player.DirectionX != 0 && */canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(player.DirectionX * dashForce - dashForce * 2f, player.DirectionY * player.Speed);
+            yield return new WaitForSeconds(dashingTime);
+            isDashing = false;
+            yield return new WaitForSeconds(timeCanDash);
+            canDash = true;
+        }
+
+    }
+
+    private IEnumerator DashLeftWhenMovingLeft()
+    {
+        if (/*player.DirectionX != 0 && */canDash)
+        {
+            isDashing = true;
+            canDash = false;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(player.DirectionX * dashForce - dashForce / 2f, player.DirectionY * player.Speed);
             yield return new WaitForSeconds(dashingTime);
             isDashing = false;
             yield return new WaitForSeconds(timeCanDash);

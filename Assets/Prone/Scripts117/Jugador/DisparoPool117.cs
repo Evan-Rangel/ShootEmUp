@@ -30,9 +30,9 @@ public class DisparoPool117 : MonoBehaviour
     private void AddLaserToPool(int amount)
     {
         GameObject laser = Instantiate(laserPrefab);
-        laser.SetActive(false);
         laserList.Add(laser);
         laser.transform.parent = transform;     
+        laser.SetActive(false);
     }
 
     public GameObject RequestLaser(int typeB)
@@ -41,8 +41,8 @@ public class DisparoPool117 : MonoBehaviour
         {
             if(!laserList[i].activeSelf)
             {
-                laserList[i].GetComponent<Disparo117>().bulletData = bulletData[typeB];
                 laserList[i].SetActive(true);
+                //laserList[i].GetComponent<Disparo117>().bulletData = bulletData[typeB];
                 return laserList[i];
             }
         }
@@ -50,5 +50,4 @@ public class DisparoPool117 : MonoBehaviour
         laserList[laserList.Count - 1].SetActive(true);
         return laserList[laserList.Count - 1];
     }
-
 }

@@ -16,6 +16,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] private int numberOfProjectiles;
     [SerializeField] private float projectileSpeed;
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] BulletData bulletData;
 
     public string EnemyName { get { return enemyName; } }
     public string Description { get { return description; } }
@@ -28,4 +29,5 @@ public class EnemyData : ScriptableObject
     public int NumberOfProjectiles { get { return numberOfProjectiles; } }
     public float ProjectileSpeed { get { return projectileSpeed; } }
     public GameObject EnemyPrefab {  get { return enemyPrefab; } }
+    public BulletData BulletData { get { return bulletData; } }
 }

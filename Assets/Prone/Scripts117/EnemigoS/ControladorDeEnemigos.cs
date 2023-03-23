@@ -7,7 +7,7 @@ public class ControladorDeEnemigos : MonoBehaviour
     [SerializeField] EnemyData enemyData;
     Vector2 startPoint;
     const float radius = 1;
-    float timer = 0.25f;
+    float timer = 1f;
     int angleSum = 0;
     int multiplicador;
 
@@ -40,7 +40,7 @@ public class ControladorDeEnemigos : MonoBehaviour
         {
             SpawnProjectiles(angleSum);
             angleSum += multiplicador;
-            timer = 0.25f;
+            timer = 1f;
         }
     }
     //El enemigo muere se activa su animacion y se desactiva el collider para que no estorbe la bala luego de morir
@@ -73,14 +73,12 @@ public class ControladorDeEnemigos : MonoBehaviour
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * enemyData.ProjectileSpeed;
 
             GameObject tmpObj = DisparoPool117.Instance.RequestLaser(enemyData.BulletType);
-            tmpObj.GetComponent<Disparo117>().SetProps();
-            tmpObj.transform.position = transform.position;
-            tmpObj.transform.rotation = Quaternion.Euler(0, 0, -angle);
-            tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+            tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
+            //tmpObj.transform.position = transform.position;
+            //tmpObj.transform.rotation = Quaternion.Euler(0, 0, -angle);
+            //tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
             angle += angleStep;
-            Debug.Log(tmpObj.GetComponent<Rigidbody2D>().velocity);
         }
-        
     }
 }

@@ -35,14 +35,13 @@ public class DisparoPool117 : MonoBehaviour
         laser.SetActive(false);
     }
 
-    public GameObject RequestLaser(int typeB)
+    public GameObject RequestLaser()
     {
         for(int i = 0; i < laserList.Count; i++)
         {
             if(!laserList[i].activeSelf)
             {
                 laserList[i].SetActive(true);
-                //laserList[i].GetComponent<Disparo117>().bulletData = bulletData[typeB];
                 return laserList[i];
             }
         }

@@ -72,12 +72,8 @@ public class ControladorDeEnemigos : MonoBehaviour
             Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * enemyData.ProjectileSpeed;
 
-            GameObject tmpObj = DisparoPool117.Instance.RequestLaser(enemyData.BulletType);
+            GameObject tmpObj = DisparoPool117.Instance.RequestLaser();
             tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
-            //tmpObj.transform.position = transform.position;
-            //tmpObj.transform.rotation = Quaternion.Euler(0, 0, -angle);
-            //tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-
             angle += angleStep;
         }
     }

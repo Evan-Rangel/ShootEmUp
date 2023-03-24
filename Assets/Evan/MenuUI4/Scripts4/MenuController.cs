@@ -43,7 +43,6 @@ public class MenuController : MonoBehaviour
 
 
 
-
     [Header("Texts")]
     public Text resolutionText;
     public Text qualityText;
@@ -77,6 +76,10 @@ public class MenuController : MonoBehaviour
             switch (panelSelector)
             {
                 case PanelSelector.Settings:
+                    if (menuPanel.gameObject.GetComponent<Animator>())
+                    {
+                        menuPanel.gameObject.GetComponent<Animator>().enabled = false;
+                    }
                     menuPanel.SetActive(true);
                     settigsPanel.SetActive(false);
                     settingsButton.Select();

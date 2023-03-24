@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject PanelUI;
     [SerializeField] GameObject PanelPause;
     [SerializeField] PlayerInput playerInput;
+
+    [SerializeField] Button backToGameBTN;
+    bool pause=false;
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -34,9 +37,22 @@ public class UIManager : MonoBehaviour
     {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
+            pause = !pause;
             Debug.Log("Pause...");
             PanelUI.GetComponent<Animator>().SetBool("Pause", !PanelUI.GetComponent<Animator>().GetBool("Pause"));
-            PanelPause.GetComponent<Animator>().SetBool("Pause", !PanelPause.GetComponent<Animator>().GetBool("Pause"));
+            PanelPause.GetComponent<Animator>().enabled = true;
+
+            if (!pause)
+            {
+                PanelPause.GetComponent<Animator>().Play("PausePaneOutAnim");
+            }
+            else
+            {
+                PanelPause.GetComponent<Animator>().Play("PausePanelInAnim");
+                backToGameBTN.Select();
+            }
+            PanelPause.GetComponent<Animator>().SetBool("Pause", !pause);
+
         }
     }
     public void ActiveImage(Image imageToPuth)

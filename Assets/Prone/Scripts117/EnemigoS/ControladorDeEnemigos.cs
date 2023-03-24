@@ -7,7 +7,7 @@ public class ControladorDeEnemigos : MonoBehaviour
     [SerializeField] EnemyData enemyData;
     Vector2 startPoint;
     const float radius = 1;
-    float timer = 0.25f;
+    float timer;
     int angleSum = 0;
     int multiplicador;
 
@@ -17,6 +17,7 @@ public class ControladorDeEnemigos : MonoBehaviour
 
     private void Start()
     {
+        timer = enemyData.BulletTimer;
         colliderEnemigo = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
 
@@ -72,15 +73,9 @@ public class ControladorDeEnemigos : MonoBehaviour
             Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * enemyData.ProjectileSpeed;
 
-            GameObject tmpObj = DisparoPool117.Instance.RequestLaser(enemyData.BulletType);
-            tmpObj.GetComponent<Disparo117>().SetProps();
-            tmpObj.transform.position = transform.position;
-            tmpObj.transform.rotation = Quaternion.Euler(0, 0, -angle);
-            tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-
+            GameObject tmpObj = DisparoPool117.Instance.RequestLaser();
+            tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
             angle += angleStep;
-            Debug.Log(tmpObj.GetComponent<Rigidbody2D>().velocity);
         }
-        
     }
 }

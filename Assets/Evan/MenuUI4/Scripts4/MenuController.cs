@@ -14,35 +14,46 @@ public class MenuController : MonoBehaviour
         Settings,
         Credits,
         Resolution,
-        Quality
+        Quality,
+        Music,
+        Volume
     }
 
     [SerializeField] PlayerInput playerInput;
 
     [Header("Panels")]
-    [SerializeField] GameObject volumeValue;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject settigsPanel;
     [SerializeField] GameObject creditsPanel;
     [SerializeField] GameObject resolutionPanel;
     [SerializeField] GameObject qualityPanel;
 
+
     [Header("Buttons")]
     [SerializeField] Button resolutionButton;
     [SerializeField] Button qualityButton;
     [SerializeField] Button settingsButton;
     [SerializeField] Button creditsButton;
-
+    [SerializeField] Button musicButton;
+    [SerializeField] Button volumeButton;
     [SerializeField] Button firstResButton;
     [SerializeField] Button firstQuaButton;
+   
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider volumeSlider;
+
 
 
 
     [Header("Texts")]
     public Text resolutionText;
     public Text qualityText;
+    [SerializeField] Text musicText;
+    [SerializeField] Text volumeText;
 
-    PanelSelector panelSelector= PanelSelector.Principal;
+
+
+    PanelSelector panelSelector = PanelSelector.Principal;
     Vector2 resValue;
     public string resolution;
     private void Awake()
@@ -51,6 +62,11 @@ public class MenuController : MonoBehaviour
     }
     private void Start()
     {
+        volumeSlider.value = volumeSlider.maxValue;
+        volumeText.text = volumeSlider.value.ToString();
+        musicSlider.value = musicSlider.maxValue;
+        musicText.text = musicSlider.value.ToString();
+
         resolution = Screen.currentResolution.ToString();
         SetQualityText();
     }
@@ -81,6 +97,18 @@ public class MenuController : MonoBehaviour
                     qualityPanel.SetActive(false);
                     qualityButton.Select();
                     panelSelector = PanelSelector.Settings;
+                    break;
+                case PanelSelector.Music:
+                    musicButton.Select();
+                    panelSelector = PanelSelector.Settings;
+                    musicText.text = musicSlider.value.ToString();
+
+                    break;
+                case PanelSelector.Volume:
+                    volumeButton.Select();
+                    panelSelector = PanelSelector.Settings;
+                    volumeText.text = volumeSlider.value.ToString();
+
                     break;
             }
         }
@@ -194,5 +222,23 @@ public class MenuController : MonoBehaviour
         resolution = Screen.currentResolution.ToString();
         resolutionText.text = resolution;
         panelSelector = PanelSelector.Settings;
+    }
+    public void VolumeButtonPress()
+    {
+        volumeSlider.Select();
+        panelSelector = PanelSelector.Volume;
+    }
+    public void MusicButtonPress()
+    {
+        musicSlider.Select();
+        panelSelector = PanelSelector.Music;
+    }
+    public void VolumeSliderMod()
+    {
+        volumeText.text = volumeSlider.value.ToString();
+    }
+    public void MusicSliderMod()
+    {
+        musicText.text = musicSlider.value.ToString();
     }
 }

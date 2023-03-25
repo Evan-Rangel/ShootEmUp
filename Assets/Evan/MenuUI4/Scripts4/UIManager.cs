@@ -37,8 +37,7 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Pause...");
             generalPanel.GetComponent<Animator>().SetBool("Pause", !generalPanel.GetComponent<Animator>().GetBool("Pause")) ;
-            //PanelUI.GetComponent<Animator>().SetBool("Pause", !PanelUI.GetComponent<Animator>().GetBool("Pause"));
-            //PanelPause.GetComponent<Animator>().SetBool("Pause", !PanelPause.GetComponent<Animator>().GetBool("Pause"));
+
         }
     }
     public void ActiveImage(Image imageToPuth)

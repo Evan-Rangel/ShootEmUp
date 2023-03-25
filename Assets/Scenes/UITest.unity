@@ -2073,6 +2073,7 @@ MonoBehaviour:
   PanelUI: {fileID: 1122087105}
   PanelPause: {fileID: 1292619324}
   playerInput: {fileID: 0}
+  backToGameButton: {fileID: 1306918621}
 --- !u!4 &1217612193
 Transform:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject PanelUI;
     [SerializeField] GameObject PanelPause;
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] Button backToGameButton;
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -35,9 +36,9 @@ public class UIManager : MonoBehaviour
     {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
+            backToGameButton.Select();
             Debug.Log("Pause...");
             generalPanel.GetComponent<Animator>().SetBool("Pause", !generalPanel.GetComponent<Animator>().GetBool("Pause")) ;
-
         }
     }
     public void ActiveImage(Image imageToPuth)

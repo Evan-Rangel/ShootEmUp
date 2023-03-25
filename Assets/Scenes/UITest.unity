@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1306918619}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &345288653
@@ -1668,6 +1668,7 @@ MonoBehaviour:
   - {fileID: 376399443}
   playerImage: []
   lifeBar: {fileID: 1609445708}
+  generalPanel: {fileID: 788982665}
   PanelUI: {fileID: 1122087105}
   PanelPause: {fileID: 1292619324}
   playerInput: {fileID: 0}

@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image lifeBar;
 
     [Header("From Pause Canvas")]
+    [SerializeField] GameObject generalPanel;
     [SerializeField] GameObject PanelUI;
     [SerializeField] GameObject PanelPause;
     [SerializeField] PlayerInput playerInput;
@@ -35,8 +36,9 @@ public class UIManager : MonoBehaviour
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
             Debug.Log("Pause...");
-            PanelUI.GetComponent<Animator>().SetBool("Pause", !PanelUI.GetComponent<Animator>().GetBool("Pause"));
-            PanelPause.GetComponent<Animator>().SetBool("Pause", !PanelPause.GetComponent<Animator>().GetBool("Pause"));
+            generalPanel.GetComponent<Animator>().SetBool("Pause", !generalPanel.GetComponent<Animator>().GetBool("Pause")) ;
+            //PanelUI.GetComponent<Animator>().SetBool("Pause", !PanelUI.GetComponent<Animator>().GetBool("Pause"));
+            //PanelPause.GetComponent<Animator>().SetBool("Pause", !PanelPause.GetComponent<Animator>().GetBool("Pause"));
         }
     }
     public void ActiveImage(Image imageToPuth)

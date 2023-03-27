@@ -19,6 +19,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject PanelPause;
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Button backToGameButton;
+
+    public static UIManager instance;
+    public static UIManager Instance { get { return instance; } }
+    private void Awake()
+    {
+        if (instance==null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();

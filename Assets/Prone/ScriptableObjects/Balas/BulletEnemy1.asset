@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9195fe8c2ebe11448493ea37e92cfae, type: 3}
   m_Name: BulletEnemy1
   m_EditorClassIdentifier: 
-  bulletName: BulletEnemy1
+  bulletName: BulletEnemy
   description: Disparo del primer tipo de enemigo
-  tagName: BulletEnemy1
+  tagName: BulletEnemy
   bulletType: 1
   bulletDamage: 1
   bulletSpeed: 2

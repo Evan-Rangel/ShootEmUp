@@ -19,13 +19,7 @@ MonoBehaviour:
   enemyDamage: 1
   bulletType: 1
   moveAttackType: 1
-  bulletTimer: 0
   enemySpeed: 7
-<<<<<<< Updated upstream
   numberOfProjectiles: 4
   projectileSpeed: 5
-=======
-  numberOfProjectiles: 20
-  projectileSpeed: 8
->>>>>>> Stashed changes
   enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}

@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
-  m_Name: EnemigoDispara1
+  m_Name: EnemigoDisparo2
   m_EditorClassIdentifier: 
-  enemyName: Banshe
-  description: Este enemigo avanza se posiciona y empieza a disparar en varias direcciones
-  enemyHealth: 6
-  attackType: 1
+  enemyName: Pene
+  description: Pene
+  enemyHealth: 10
+  attackType: 2
   enemyDamage: 1
   bulletType: 1
   moveAttackType: 1
   bulletTimer: 0
-  enemySpeed: 7
-<<<<<<< Updated upstream
-  numberOfProjectiles: 4
-  projectileSpeed: 5
-=======
-  numberOfProjectiles: 20
-  projectileSpeed: 8
->>>>>>> Stashed changes
+  enemySpeed: 2
+  numberOfProjectiles: 7
+  projectileSpeed: 3
   enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}
+  bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}

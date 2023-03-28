@@ -6,20 +6,20 @@ public class DisparoPool117 : MonoBehaviour
 {
     [SerializeField] BulletData[] bulletData;
     [SerializeField] private GameObject laserPrefab;
-    [SerializeField, Range(0,50)] private int poolSize;
+    [SerializeField, Range(0, 50)] private int poolSize;
     [SerializeField] private List<GameObject> laserList;
     private static DisparoPool117 instance;
     public static DisparoPool117 Instance { get { return instance; } }
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-        else 
+        else
         {
-            Destroy(gameObject);     
+            Destroy(gameObject);
         }
     }
     void Start()
@@ -30,18 +30,17 @@ public class DisparoPool117 : MonoBehaviour
     private void AddLaserToPool(int amount)
     {
         GameObject laser = Instantiate(laserPrefab);
-        laser.SetActive(false);
         laserList.Add(laser);
-        laser.transform.parent = transform;     
+        laser.transform.parent = transform;
+        laser.SetActive(false);
     }
 
-    public GameObject RequestLaser(int typeB)
+    public GameObject RequestLaser()
     {
-        for(int i = 0; i < laserList.Count; i++)
+        for (int i = 0; i < laserList.Count; i++)
         {
-            if(!laserList[i].activeSelf)
+            if (!laserList[i].activeSelf)
             {
-                laserList[i].GetComponent<Disparo117>().bulletData = bulletData[typeB];
                 laserList[i].SetActive(true);
                 return laserList[i];
             }

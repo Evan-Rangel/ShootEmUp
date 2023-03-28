@@ -12,10 +12,12 @@ public class EnemyData : ScriptableObject
     [SerializeField] private int enemyDamage;
     [SerializeField] private int bulletType;
     [SerializeField] private int moveAttackType;
+    [SerializeField] private float bulletTimer;
     [SerializeField] private float enemySpeed;
     [SerializeField] private int numberOfProjectiles;
     [SerializeField] private float projectileSpeed;
     [SerializeField] GameObject enemyPrefab;
+    [SerializeField] BulletData bulletData;
 
     public string EnemyName { get { return enemyName; } }
     public string Description { get { return description; } }
@@ -24,8 +26,10 @@ public class EnemyData : ScriptableObject
     public int EnemyDamage { get { return enemyDamage; } }
     public int BulletType { get { return bulletType; } }
     public int MoveAttackType { get { return moveAttackType; } }
+    public float BulletTimer { get { return bulletTimer; } }
     public float EnemySpeed { get { return enemySpeed; } }
     public int NumberOfProjectiles { get { return numberOfProjectiles; } }
     public float ProjectileSpeed { get { return projectileSpeed; } }
     public GameObject EnemyPrefab {  get { return enemyPrefab; } }
+    public BulletData BulletData { get { return bulletData; } }
 }

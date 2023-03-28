@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2158766264638325395}
   - component: {fileID: 2158766264638325404}
   - component: {fileID: 2158766264638325405}
-  - component: {fileID: 1354209529062883969}
   - component: {fileID: 3790313811598575670}
   m_Layer: 0
   m_Name: EnemigoDispara1
@@ -162,19 +161,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1354209529062883969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2158766264638325406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb04a7312db1ea48bfa7e3ff501d2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 6
 --- !u!114 &3790313811598575670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,5 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 5a3d87fdd781d9945b3ed9ea1f1f6156, type: 2}
-  bulletData: {fileID: 0}
+  enemyHealth: 3
   animacionMorir: {fileID: 7400000, guid: 51f8d6bea56df774b96efeab8442d391, type: 2}

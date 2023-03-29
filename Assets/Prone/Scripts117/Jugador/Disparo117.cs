@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 
 public class Disparo117 : MonoBehaviour
 {
-    public BulletData bulletData;
+    public BulletData[] bulletData;
     [SerializeField] private Rigidbody2D bulletRB;
     [SerializeField] private GameObject[] typesBullets;
 
@@ -13,7 +13,13 @@ public class Disparo117 : MonoBehaviour
     {
         if (other.CompareTag("Enemigos") && transform.CompareTag("BulletPlayer"))
         {
-            other.GetComponent<ControladorDeEnemigos>().RecibirDanio(bulletData.BulletDamage);
+            other.GetComponent<ControladorDeEnemigos>().RecibirDanio(bulletData[0].BulletDamage);
+            ResetProps();
+        }
+
+        if (other.CompareTag("Player") && transform.CompareTag("BulletEnemy"))
+        {
+            other.GetComponent<Player117>().RecibirDanio(bulletData[1].BulletDamage);
             ResetProps();
         }
 
@@ -21,8 +27,9 @@ public class Disparo117 : MonoBehaviour
         {
             ResetProps();
         }
+
     }
-    void ResetProps()
+    public void ResetProps()
     {
         gameObject.tag = "Untagged";
         gameObject.transform.rotation = Quaternion.identity;
@@ -31,10 +38,10 @@ public class Disparo117 : MonoBehaviour
     }
     public void SetProps(Vector2 _vel, Vector2 _pos, float _ang, BulletData _bulletData)
     {
-        bulletData = _bulletData;
-        gameObject.GetComponent<SpriteRenderer>().sprite = bulletData.Sprite;
-        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData.Animator;
-        gameObject.tag = bulletData.TagName;
+        bulletData[1] = _bulletData;
+        gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[1].Sprite;
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[1].Animator;
+        gameObject.tag = bulletData[1].TagName;
         transform.rotation = Quaternion.Euler(0, 0, _ang);
         transform.position = _pos;
         bulletRB.velocity = _vel;
@@ -42,10 +49,10 @@ public class Disparo117 : MonoBehaviour
 
     public void SetPropsPlayer(Vector2 _pos, BulletData _bulletData)
     {
-        bulletData = _bulletData;
-        gameObject.GetComponent<SpriteRenderer>().sprite = bulletData.Sprite;
-        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData.Animator;
-        gameObject.tag = bulletData.TagName;
+        bulletData[0] = _bulletData;
+        gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[0].Sprite;
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[0].Animator;
+        gameObject.tag = bulletData[0].TagName;
         transform.position = _pos;
     }
 }

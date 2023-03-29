@@ -224,7 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e209a833f5a2d5e499e48a6cc302d82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: fd3cd428d20927a45845e557659ec648, type: 2}
+  bulletData:
+  - {fileID: 11400000, guid: fd3cd428d20927a45845e557659ec648, type: 2}
+  - {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}
   bulletRB: {fileID: 8944065152983022659}
   typesBullets:
   - {fileID: 8115563408994073209}

@@ -6,12 +6,15 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    [Header ("From UI")]
+    [Header("From UI")]
     [SerializeField] Text scoreText;
     [SerializeField] Text levelText;
     [SerializeField] Image[] buffsImages;
     [SerializeField] Image[] playerImage;
-    [SerializeField] Image lifeBar;
+    [SerializeField] List <Image> hearts;
+    [SerializeField] Sprite heartImage;
+    [SerializeField] Vector2 posImages;
+    [SerializeField]Image rem;
 
     [Header("From Pause Canvas")]
     [SerializeField] GameObject generalPanel;
@@ -19,6 +22,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject panelPause;
     [SerializeField] GameObject leftPanel;
     [SerializeField] GameObject rightPanel;
+    [SerializeField] GameObject healthPanel;
+
+
+
+
+    [Header ("Win Lose Screens")]
+    [SerializeField] GameObject loseScreen;
+    [SerializeField] GameObject winScreen;
 
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Button backToGameButton;
@@ -35,7 +46,6 @@ public class UIManager : MonoBehaviour
 
 
     bool isPause;
-
     public static UIManager instance;
     public static UIManager Instance { get { return instance; } }
     private void Awake()
@@ -49,7 +59,6 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         playerInput =gameObject.GetComponent<PlayerInput>();
-
     }
     private void Start()
     {
@@ -61,6 +70,7 @@ public class UIManager : MonoBehaviour
         {
             buffsImages[i].enabled = false;
         }
+        SetHeats(3);
     }
     private void Update()
     {
@@ -101,10 +111,33 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    public void TakeDamage(float totalHealth, float currentHealth)
+    public void SetHeats(int healt)
     {
-        float amount = currentHealth / totalHealth;
-        lifeBar.fillAmount = amount;
+        for (int i = 0; i < healt; i++)
+        {
+            hearts.Add(Instantiate(rem, healthPanel.transform));
+            hearts[i].sprite = heartImage;
+            hearts[i].rectTransform.anchoredPosition = posImages;
+            posImages.x += 50;
+        }   
+    }
+
+    public void SetDamae(int health)
+    {
+        if (health<=0)
+        {
+            LoseScreen();
+        }
+        for (int i = 0; i < health; i++)
+        {
+            hearts[i].gameObject.SetActive(false);
+        }
+    }
+
+    private void LoseScreen()
+    {
+        loseScreen.SetActive(true);
+
     }
     public void UpdateScore(float newScore)
     {

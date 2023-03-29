@@ -8,10 +8,9 @@ public class ControladorDeEnemigos : MonoBehaviour
     Vector2 startPoint;
     const float radius = 1;
     float timer;
-    int angleSum = 0;
-    int angleSumI = 0;
-    int multiplicador;
-
+    int angleSum;
+    int cont = 0;
+    int mult = 1;
     [SerializeField] int enemyHealth;
 
     private PolygonCollider2D colliderEnemigo;
@@ -20,27 +19,13 @@ public class ControladorDeEnemigos : MonoBehaviour
 
     private void Start()
     {
-
+        angleSum = enemyData.BulletInitialAngle;
         enemyHealth = enemyData.EnemyHealth;
         //Tipo de Disparo
         timer = enemyData.BulletTimer;
         colliderEnemigo = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
 
-        switch (enemyData.AttackType)
-        {
-            case 1:
-                multiplicador = 0;
-                break;
-            case 2:
-                multiplicador = 20;
-                break;
-            case 3:
-                multiplicador = 60;
-                break;
-            default:
-                break;
-        }
         //Tipo de Movimiento
     }
     //Cuando Muere el enemigo se activa la animacion de morir, se descativa el collider para que no estorbe las balas y se activa la corrutina de la desactivacion del enemigo
@@ -57,15 +42,44 @@ public class ControladorDeEnemigos : MonoBehaviour
     private void FixedUpdate()
     {
         timer -= Time.fixedDeltaTime;
+
         if (timer <= 0)
         {
-            SpawnProjectiles(angleSum);
-            angleSum -= multiplicador;
 
-            SpawnProjectiles(angleSumI);
-            angleSumI += multiplicador;
+            switch (enemyData.AttackType)
+            { 
+                case 1: case 2://Ataque 1 y 2, solo dependen del bulletAngleSum
+                    SpawnProjectiles(angleSum, 360 / enemyData.NumberOfProjectiles);
+                    angleSum += enemyData.BulletAngleSum;
+                    timer = enemyData.BulletTimer;
+                break;
+            case 3://Ataque 3 es petalo
+                
+                    SpawnProjectiles(angleSum, 360 / enemyData.NumberOfProjectiles);
+                    SpawnProjectiles(-angleSum, 360 / enemyData.NumberOfProjectiles);
+                    angleSum += enemyData.BulletAngleSum;
+
+                    //angleSumI -= enemyData.BulletAngleSum;
+                    timer = enemyData.BulletTimer;
+                break;
+            case 4: //Ataque 4 es vuelta y regreso
+                    if (cont == 6)
+                    {
+                        mult = -mult;
+                        cont = 0;
+                    }
+                    SpawnProjectiles(angleSum, 360/enemyData.DistanceBetweenProjectiles);
+                    angleSum += mult*enemyData.BulletAngleSum;
+                    cont++;
+                    timer = enemyData.BulletTimer;
+                break;
+            default:
+                break;
+            }
             timer = enemyData.BulletTimer;
         }
+
+
     }
     //Funcion de Recibir daño (Movi esto Evan)
     public void RecibirDanio(int danio)
@@ -79,13 +93,15 @@ public class ControladorDeEnemigos : MonoBehaviour
         gameObject.SetActive(false);
     }
     //Movimiento, rotacion, posicion y Spawneo de balas
-    private void SpawnProjectiles(int addAngle)
+    private void SpawnProjectiles(int addAngle, float _angleStep)
     {
-        float angleStep = 360f / enemyData.NumberOfProjectiles;
+        float angleStep = _angleStep;
         float angle = addAngle;
         startPoint = transform.position;
+        
         for (int i = 0; i < enemyData.NumberOfProjectiles; i++)
         {
+            
             float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
             Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
@@ -93,7 +109,9 @@ public class ControladorDeEnemigos : MonoBehaviour
 
             GameObject tmpObj = DisparoPool117.Instance.RequestLaser();
             tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
+
             angle += angleStep;
+
         }
     }
 

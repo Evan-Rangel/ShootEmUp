@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d294eb1ab8e2154ebb69d912371f513, type: 3}
+  m_Name: LStick_Button_SO
+  m_EditorClassIdentifier: 
+  tutorialanimation: {fileID: 7400000, guid: 16cd9d8fa81674a4496c75c22fd174bf, type: 2}
+  tutorialText: IZQUIERDO PARA MOVERTE.
+  tutorialName: TutorialMovAnimation
+  tutorialsprite:
+  - {fileID: 21300000, guid: 1de5dd79540b56e40a44429073289ce8, type: 2}
+  - {fileID: 21300000, guid: e99048854044f4e41829b8cec944a4f6, type: 2}
+  - {fileID: 21300000, guid: 3614444dc00125d40a53f0540a2370ea, type: 2}
+  - {fileID: 21300000, guid: 27345ddcbb8663946b01fa7753c13fca, type: 2}
+  - {fileID: 21300000, guid: 8130b5283a6503b4ba169f4774d3ec1f, type: 2}
+  - {fileID: 21300000, guid: 77458c9a25f10b34dada26bdf34977bd, type: 2}
+  - {fileID: 21300000, guid: e7c1ab801b9c75b4c8d49c0efb10fb70, type: 2}
+  - {fileID: 21300000, guid: c0fbd3611a4a3b643b3942eff9dc2556, type: 2}
+  - {fileID: 21300000, guid: 829629cf7411c6643b39e3fba4ff3d29, type: 2}
+  - {fileID: 21300000, guid: 1de5dd79540b56e40a44429073289ce8, type: 2}

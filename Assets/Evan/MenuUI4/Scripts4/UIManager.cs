@@ -15,10 +15,26 @@ public class UIManager : MonoBehaviour
 
     [Header("From Pause Canvas")]
     [SerializeField] GameObject generalPanel;
-    [SerializeField] GameObject PanelUI;
-    [SerializeField] GameObject PanelPause;
+    [SerializeField] GameObject panelUI;
+    [SerializeField] GameObject panelPause;
+    [SerializeField] GameObject leftPanel;
+    [SerializeField] GameObject rightPanel;
+
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Button backToGameButton;
+
+    [SerializeField] Transform leftPanelPosTarget;
+    [SerializeField] Transform rightPanelPosTarget;
+    [SerializeField] Transform PausePanelPosTarget;
+
+
+
+    [SerializeField] Vector3 leftPanelPos;
+    [SerializeField] Vector3 rightPanelPos;
+    [SerializeField] Vector3 PausetPanelPos;
+
+
+    bool isPause;
 
     public static UIManager instance;
     public static UIManager Instance { get { return instance; } }
@@ -32,10 +48,15 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerInput =gameObject.GetComponent<PlayerInput>();
+
     }
     private void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
+        isPause = true;
+        rightPanelPos = rightPanel.transform.position;
+        leftPanelPos = leftPanel.transform.position;
+        PausetPanelPos = panelPause.transform.position;
         for (int i = 0; i < buffsImages.Length; i++)
         {
             buffsImages[i].enabled = false;
@@ -50,9 +71,23 @@ public class UIManager : MonoBehaviour
     {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
+            if (isPause)
+            {
+                panelPause.transform.LeanScale(Vector3.one, 0.2f);
+                panelPause.transform.LeanMove(PausePanelPosTarget.position,0.2f);
+                leftPanel.transform.LeanMove(leftPanelPosTarget.position, 0.2f);
+                rightPanel.transform.LeanMove(rightPanelPosTarget.position, 0.2f);
+
+            }
+            else
+            {
+                panelPause.transform.LeanMove(PausetPanelPos,0.2f);
+                panelPause.transform.LeanScale(Vector3.zero, 0.2f);
+                leftPanel.transform.LeanMove(leftPanelPos, 0.2f);
+                rightPanel.transform.LeanMove(rightPanelPos, 0.2f);
+            }
+            isPause = !isPause;
             backToGameButton.Select();
-            Debug.Log("Pause...");
-            generalPanel.GetComponent<Animator>().SetBool("Pause", !generalPanel.GetComponent<Animator>().GetBool("Pause")) ;
         }
     }
     public void ActiveImage(Image imageToPuth)

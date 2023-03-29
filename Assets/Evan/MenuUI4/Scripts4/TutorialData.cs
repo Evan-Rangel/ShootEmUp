@@ -7,17 +7,9 @@ using UnityEngine.Animations;
 
 public class TutorialData : ScriptableObject
 {
-    //[SerializeField] UnityEditor.Animations.AnimatorController animator;
-    [SerializeField] AnimationClip tutorialanimation;
     [SerializeField, TextArea(0, 2)] string tutorialText;
-    [SerializeField] string tutorialName;
-    [SerializeField] Sprite tutorialsprite;
-    //[SerializeField] int tutorialOrder;
+    [SerializeField] Sprite[] tutorialsprite;
 
-   // public UnityEditor.Animations.AnimatorController Animator { get { return animator; } }
     public string TutorialText { get { return tutorialText; } }
-    public string TutorialName { get { return tutorialName; } }
-    public Sprite TutorialSprite { get { return tutorialsprite; } }
-    public AnimationClip TutorialAnimation { get { return tutorialanimation; } }
-    //public int TutorialOrder { get { return tutorialOrder; } }
+    public Sprite[] TutorialSprite { get { return tutorialsprite; } }
 }

@@ -7,38 +7,66 @@ public class TutorialScript : MonoBehaviour
 {
     [SerializeField] TutorialData[] tutorialData;
 
-    [SerializeField] string[] collisionTags;
     string currentTag;
     
-    [SerializeField, TextArea(1,10)] string[] tutorialText;
     [SerializeField] Text holderText;
 
-    [SerializeField] Sprite[] tutorialImages;
     [SerializeField] Image holderImage;
+    [SerializeField] bool change;
+    [SerializeField] GameObject tutorialPanel;
+
     int triggerNumber;
 
+    
 
 
     private void Awake()
     {
-        triggerNumber = 0;
+        change = false;
+        triggerNumber = -1;
     }
     private void Start()
     {
         UpdateTutorial();
     }
+    private void Update()
+    {
+        if (change==true)
+        {
+            change = false;
+            UpdateTutorial();
+        }
+    }
     public void UpdateTutorial()
     {
-        holderImage.sprite = tutorialData[triggerNumber].TutorialSprite;
-       // holderImage.gameObject.GetComponent<Animation>().AddClip(tutorialData[triggerNumber].TutorialAnimation, tutorialData[triggerNumber].TutorialName);// = tutorialData[triggerNumber].TutorialAnimation;
-       // holderImage.gameObject.GetComponent<Animation>().Play();
-        holderText.text = tutorialData[triggerNumber].TutorialText;
         triggerNumber++;
-        /*
-        holderImage.sprite = tutorialImages[triggerNumber];
-        holderText.text = tutorialText[triggerNumber];
-        currentTag = collisionTags[triggerNumber];
-        triggerNumber++;*/
+        if (triggerNumber>= tutorialData.Length)
+        {
+            StopCoroutine(Animation());
+            tutorialPanel.SetActive(false);
+            Debug.Log("parando");
+        }
+        else
+        {
+            StartCoroutine(Animation());
+            holderText.text = tutorialData[triggerNumber].TutorialText;
+        }
+    }
+
+    
+    IEnumerator Animation()
+    {
+
+        for (int i = 0; i < tutorialData[triggerNumber].TutorialSprite.Length; i++)
+        {
+            holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[i];
+            if (i== tutorialData[triggerNumber].TutorialSprite.Length-1)
+            {
+                i = 0;
+            }
+
+            yield return new WaitForSeconds(0.15f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

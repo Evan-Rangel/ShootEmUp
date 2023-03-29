@@ -17,14 +17,14 @@ MonoBehaviour:
   enemyHealth: 6
   enemyDamage: 1
   enemySpeed: 7
-  attackType: 4
+  attackType: 3
   moveAttackType: 1
   bulletDamage: 0
   bulletType: 1
-  bulletAngleSum: 20
+  bulletAngleSum: 80
   bulletInitialAngle: 120
-  bulletTimer: 0.4
-  numberOfProjectiles: 3
+  bulletTimer: 0.2
+  numberOfProjectiles: 5
   distanceBetweenProjectiles: 20
   projectileSpeed: 5
   enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}

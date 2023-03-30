@@ -7,24 +7,20 @@ using UnityEngine.InputSystem;
 public class TutorialScript : MonoBehaviour
 {
     [SerializeField] TutorialData[] tutorialData;
-
     [SerializeField] Text holderText;
-
     [SerializeField] Image holderImage;
     [SerializeField] GameObject tutorialPanel;
-
     [SerializeField] int triggerNumber;
     [SerializeField] PlayerInput playerInput;
-    //[SerializeField] PlayerInput playerInput;
 
     bool canChangeTutorial;
     float timer;
-    float maxTimer;
+    [SerializeField]float maxTimer;
 
     private void Awake()
     {
-        maxTimer = 2;
-        canChangeTutorial=true;
+        timer = maxTimer;
+        canChangeTutorial=false;
         triggerNumber = -1;
         playerInput =GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
@@ -36,6 +32,19 @@ public class TutorialScript : MonoBehaviour
     {
         GetInputs();
     }
+    private void FixedUpdate()
+    {
+        if (canChangeTutorial)
+        {
+            timer -= Time.deltaTime;
+        }
+        if (timer <= 0)
+        {
+            canChangeTutorial = false;
+            timer = maxTimer;
+            UpdateTutorial();
+        }
+    }
 
     void GetInputs()
     {
@@ -44,35 +53,22 @@ public class TutorialScript : MonoBehaviour
         switch (triggerNumber)
         {
             case 0:
-                if (playerInput.actions["Move"].ReadValue<Vector2>() != Vector2.zero && timer == 0)
+                if (playerInput.actions["Move"].ReadValue<Vector2>() != Vector2.zero && timer == maxTimer)
                 {
-                    UpdateTutorial();
-                    timer = 2;
+                    canChangeTutorial = true;
                 }
                 break;
             case 1:
-                if (playerInput.actions["Fire"].WasPressedThisFrame() && timer == 0)
+                if (playerInput.actions["Fire"].WasPressedThisFrame() && timer == maxTimer)
                 {
-                    UpdateTutorial();
-
-                    timer = 2;
+                    canChangeTutorial = true;
                 }
                 break;
             default:
                 break;
         }
-
-        if (timer<=maxTimer && timer>=0)
-        {
-            timer -= Time.deltaTime;
-        }
-        else
-        {
-            timer = 0;
-        }
     }
-
-
+   
     public void UpdateTutorial()
     {
         triggerNumber++;
@@ -100,6 +96,4 @@ public class TutorialScript : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
         }
     }
-
-
 }

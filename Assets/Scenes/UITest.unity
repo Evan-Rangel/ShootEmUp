@@ -438,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 701634477, guid: fc3e4f20467f71142949248183587341, type: 3}
+      propertyPath: maxTimer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6765441604234168592, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_RootOrder
       value: 1

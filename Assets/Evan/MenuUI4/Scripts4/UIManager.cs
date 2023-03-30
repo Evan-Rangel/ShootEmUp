@@ -27,6 +27,11 @@ public class UIManager : MonoBehaviour
     [Header ("Win Lose Screens")]
     [SerializeField] GameObject loseScreen;
     [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject creditsPanel;
+    [SerializeField] GameObject creditsPanelAnim;
+    [SerializeField] GameObject creditsTargetAnim;
+    [SerializeField] Text finalLoseScoreText;
+    [SerializeField] Text finalWinScoreText;
 
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Button backToGameButton;
@@ -38,6 +43,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] Vector3 leftPanelPos;
     [SerializeField] Vector3 rightPanelPos;
     [SerializeField] Vector3 PausetPanelPos;
+    [ContextMenu ("doSomething()")] 
+    void doSomething()
+    {
+        WinScreen(20);
+    }
+
     bool isPause;
     public static UIManager instance;
     public static UIManager Instance { get { return instance; } }
@@ -55,6 +66,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1;
         isPause = true;
         rightPanelPos = rightPanel.transform.position;
         leftPanelPos = leftPanel.transform.position;
@@ -70,14 +82,12 @@ public class UIManager : MonoBehaviour
         ActivePause();
     }
 
-
     public void ActivePause()
     {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
             if (isPause)
             {
-                //Time.timeScale = 0;
                 panelPause.transform.LeanScale(Vector3.one, 0.2f);
                 panelPause.transform.LeanMove(PausePanelPosTarget.position,0.2f);
                 leftPanel.transform.LeanMove(leftPanelPosTarget.position, 0.2f);
@@ -104,6 +114,7 @@ public class UIManager : MonoBehaviour
         StopCoroutine(SetTimeScale());
 
     }
+
     public void ActiveImage(Image imageToPuth)
     {
         for (int i = 0; i < buffsImages.Length; i++)
@@ -128,11 +139,12 @@ public class UIManager : MonoBehaviour
         }   
     }
 
-    public void SetDamae(int health)
+    public void SetDamae(int health, int score)
     {
         if (health<=0)
         {
             LoseScreen();
+            finalLoseScoreText.text = score.ToString();
         }
         for (int i = 0; i < health; i++)
         {
@@ -143,16 +155,28 @@ public class UIManager : MonoBehaviour
     private void LoseScreen()
     {
         loseScreen.SetActive(true);
+
         Time.timeScale = 0;
     }
-    private void WinScreen()
+    public void WinScreen(int score)
     {
         winScreen.SetActive(true);
-        Time.timeScale = 0;
+        finalWinScoreText.text = score.ToString();
+        Debug.Log("Mucho Antes");
+
+        StartCoroutine(DelayCredits());
+        Debug.Log("Despues");
     }
+    IEnumerator DelayCredits()
+    {
+        Debug.Log("Antes");
+        yield return new WaitForSeconds(1);
+        Debug.Log("Hola");
+        creditsPanelAnim.transform.LeanMove(creditsTargetAnim.transform.position, 20);
+    }
+
     public void UpdateScore(float newScore)
     {
-
         scoreText.text = newScore.ToString();
     }
 

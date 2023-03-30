@@ -48,8 +48,6 @@ public class TutorialScript : MonoBehaviour
 
     void GetInputs()
     {
-        Debug.Log(playerInput.actions["Fire"].WasPressedThisFrame());
-
         switch (triggerNumber)
         {
             case 0:

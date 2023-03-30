@@ -319,6 +319,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226761302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5562582325270419550, guid: fc3e4f20467f71142949248183587341, type: 3}
+  m_PrefabInstance: {fileID: 6765441603303997617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306918619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6765441604291427946, guid: fc3e4f20467f71142949248183587341, type: 3}
@@ -442,6 +453,10 @@ PrefabInstance:
       propertyPath: maxTimer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 809817985651122003, guid: fc3e4f20467f71142949248183587341, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6765441604234168592, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -486,9 +501,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6765441604234168593, guid: fc3e4f20467f71142949248183587341, type: 3}
+      propertyPath: finalWinScoreText
+      value: 
+      objectReference: {fileID: 1226761302}
     - target: {fileID: 6765441604234168622, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765441604409110640, guid: fc3e4f20467f71142949248183587341, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

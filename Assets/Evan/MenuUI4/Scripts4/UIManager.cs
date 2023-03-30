@@ -43,8 +43,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Vector3 leftPanelPos;
     [SerializeField] Vector3 rightPanelPos;
     [SerializeField] Vector3 PausetPanelPos;
-
-
     bool isPause;
     public static UIManager instance;
     public static UIManager Instance { get { return instance; } }
@@ -58,7 +56,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        playerInput =gameObject.GetComponent<PlayerInput>();
+        playerInput = gameObject.GetComponent<PlayerInput>();
     }
     private void Start()
     {
@@ -76,6 +74,7 @@ public class UIManager : MonoBehaviour
     {
         ActivePause();
     }
+
 
     public void ActivePause()
     {

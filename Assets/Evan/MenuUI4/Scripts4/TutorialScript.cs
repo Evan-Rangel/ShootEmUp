@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class TutorialScript : MonoBehaviour
 {
     [SerializeField] TutorialData[] tutorialData;
 
-    string currentTag;
-    
     [SerializeField] Text holderText;
 
     [SerializeField] Image holderImage;
-    [SerializeField] bool change;
     [SerializeField] GameObject tutorialPanel;
 
-    int triggerNumber;
+    [SerializeField] int triggerNumber;
+    [SerializeField] PlayerInput playerInput;
+    //[SerializeField] PlayerInput playerInput;
 
-    
-
+    bool canChangeTutorial;
+    float timer;
+    float maxTimer;
 
     private void Awake()
     {
-        change = false;
+        maxTimer = 2;
+        canChangeTutorial=true;
         triggerNumber = -1;
+        playerInput =GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
     private void Start()
     {
@@ -31,12 +34,45 @@ public class TutorialScript : MonoBehaviour
     }
     private void Update()
     {
-        if (change==true)
+        GetInputs();
+    }
+
+    void GetInputs()
+    {
+        Debug.Log(playerInput.actions["Fire"].WasPressedThisFrame());
+
+        switch (triggerNumber)
         {
-            change = false;
-            UpdateTutorial();
+            case 0:
+                if (playerInput.actions["Move"].ReadValue<Vector2>() != Vector2.zero && timer == 0)
+                {
+                    UpdateTutorial();
+                    timer = 2;
+                }
+                break;
+            case 1:
+                if (playerInput.actions["Fire"].WasPressedThisFrame() && timer == 0)
+                {
+                    UpdateTutorial();
+
+                    timer = 2;
+                }
+                break;
+            default:
+                break;
+        }
+
+        if (timer<=maxTimer && timer>=0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
         }
     }
+
+
     public void UpdateTutorial()
     {
         triggerNumber++;
@@ -44,7 +80,6 @@ public class TutorialScript : MonoBehaviour
         {
             StopCoroutine(Animation());
             tutorialPanel.SetActive(false);
-            Debug.Log("parando");
         }
         else
         {
@@ -52,11 +87,9 @@ public class TutorialScript : MonoBehaviour
             holderText.text = tutorialData[triggerNumber].TutorialText;
         }
     }
-
     
     IEnumerator Animation()
     {
-
         for (int i = 0; i < tutorialData[triggerNumber].TutorialSprite.Length; i++)
         {
             holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[i];
@@ -64,16 +97,9 @@ public class TutorialScript : MonoBehaviour
             {
                 i = 0;
             }
-
             yield return new WaitForSeconds(0.15f);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag(currentTag))
-        {
-            UpdateTutorial();
-        }
-    }
+
 
 }

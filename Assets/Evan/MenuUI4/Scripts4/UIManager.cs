@@ -24,9 +24,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject rightPanel;
     [SerializeField] GameObject healthPanel;
 
-
-
-
     [Header ("Win Lose Screens")]
     [SerializeField] GameObject loseScreen;
     [SerializeField] GameObject winScreen;
@@ -37,8 +34,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Transform leftPanelPosTarget;
     [SerializeField] Transform rightPanelPosTarget;
     [SerializeField] Transform PausePanelPosTarget;
-
-
 
     [SerializeField] Vector3 leftPanelPos;
     [SerializeField] Vector3 rightPanelPos;
@@ -82,22 +77,32 @@ public class UIManager : MonoBehaviour
         {
             if (isPause)
             {
+                //Time.timeScale = 0;
                 panelPause.transform.LeanScale(Vector3.one, 0.2f);
                 panelPause.transform.LeanMove(PausePanelPosTarget.position,0.2f);
                 leftPanel.transform.LeanMove(leftPanelPosTarget.position, 0.2f);
                 rightPanel.transform.LeanMove(rightPanelPosTarget.position, 0.2f);
-
+                backToGameButton.Select();
+                StartCoroutine(SetTimeScale());
             }
             else
             {
+                Time.timeScale = 1;
+
                 panelPause.transform.LeanMove(PausetPanelPos,0.2f);
                 panelPause.transform.LeanScale(Vector3.zero, 0.2f);
                 leftPanel.transform.LeanMove(leftPanelPos, 0.2f);
                 rightPanel.transform.LeanMove(rightPanelPos, 0.2f);
             }
             isPause = !isPause;
-            backToGameButton.Select();
         }
+    }
+    IEnumerator SetTimeScale()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 0;
+        StopCoroutine(SetTimeScale());
+
     }
     public void ActiveImage(Image imageToPuth)
     {
@@ -115,6 +120,8 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < healt; i++)
         {
             hearts.Add(Instantiate(rem, healthPanel.transform));
+            hearts[i].GetComponent<Image>().enabled = true ;
+
             hearts[i].sprite = heartImage;
             hearts[i].rectTransform.anchoredPosition = posImages;
             posImages.x += 50;
@@ -136,15 +143,21 @@ public class UIManager : MonoBehaviour
     private void LoseScreen()
     {
         loseScreen.SetActive(true);
-
+        Time.timeScale = 0;
+    }
+    private void WinScreen()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
     }
     public void UpdateScore(float newScore)
     {
-        scoreText.text = "SCORE: " + newScore.ToString();
+
+        scoreText.text = newScore.ToString();
     }
 
-    public void UpdateLevel(string nameLevel)
+    public void UpdateLevel(int nameLevel)
     {
-        levelText.text = nameLevel;
+        levelText.text = nameLevel.ToString();
     }
 }

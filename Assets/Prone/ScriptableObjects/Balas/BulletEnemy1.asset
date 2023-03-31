@@ -17,4 +17,4 @@ MonoBehaviour:
   bulletDamage: 1
   tagName: BulletEnemy
   animator: {fileID: 9100000, guid: 5262b7bd8a2f14f4d84d96fd95a076f5, type: 2}
-  sprite: {fileID: 21300000, guid: b0515cea61b70f44cb3f3f4cde5dcfee, type: 3}
+  sprite: {fileID: 21300000, guid: 8865cc3a6712b1f4d868f83b2d7ed1dd, type: 3}

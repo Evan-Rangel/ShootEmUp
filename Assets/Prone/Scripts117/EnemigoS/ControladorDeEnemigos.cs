@@ -37,7 +37,7 @@ public class ControladorDeEnemigos : MonoBehaviour
 
     private void Start()
     {
-        angleSum = enemyData.BulletInitialAngle;
+        angleSum = enemyData.BulletAngleSum;
         enemyHealth = enemyData.EnemyHealth;
         attackType = enemyData.AttackType;
         numberOfProyectiles = enemyData.NumberOfProjectiles;

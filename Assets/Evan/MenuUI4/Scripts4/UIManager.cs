@@ -159,12 +159,20 @@ public class UIManager : MonoBehaviour
 
         Time.timeScale = 0;
     }
-    public void WinScreen(int score)
+    public void WinScreen()
     {
-        Time.timeScale = 1;
-        winScreen.SetActive(true);
-        finalWinScoreText.text = score.ToString();
-        StartCoroutine(DelayCredits());
+        if (SceneManager.GetActiveScene().name == "UITest")
+        {
+            Time.timeScale = 1;
+            winScreen.SetActive(true);
+            finalWinScoreText.text = totalScore.ToString();
+            StartCoroutine(DelayCredits());
+        }
+        else
+        {
+            Debug.Log("Cargando siguiente escena.");
+            //SceneManager.LoadScene("UITest");
+        }
     }
     IEnumerator DelayCredits()
     {

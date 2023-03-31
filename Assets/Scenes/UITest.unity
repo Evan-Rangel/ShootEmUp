@@ -123,41 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &67592454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 701634476, guid: fc3e4f20467f71142949248183587341, type: 3}
-  m_PrefabInstance: {fileID: 6765441603303997617}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &67592457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67592454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 5aee90ef4baa58d4a8c470ec37344ce6, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &98902249
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,17 +762,6 @@ MonoBehaviour:
   movementData: {fileID: 11400000, guid: 5ad5b2f3812fbff4b9f72115a217fff8, type: 2}
   rb: {fileID: 0}
   dTime: 0
---- !u!114 &1226761302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5562582325270419550, guid: fc3e4f20467f71142949248183587341, type: 3}
-  m_PrefabInstance: {fileID: 6765441603303997617}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1291230591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899650510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9700003, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1370,30 +1324,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 118611092, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 118611092, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 118611093, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 701634477, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: maxTimer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 809817985651122003, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825028604355164791, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6765441604234168592, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1438,21 +1368,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6765441604234168593, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: finalWinScoreText
-      value: 
-      objectReference: {fileID: 1226761302}
-    - target: {fileID: 6765441604234168593, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: buffsImages.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6765441604234168622, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_Name
       value: UIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765441604409110640, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

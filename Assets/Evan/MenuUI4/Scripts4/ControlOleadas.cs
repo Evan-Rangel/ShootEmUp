@@ -51,7 +51,7 @@ public class ControlOleadas : MonoBehaviour
         currentWave++;
         if (currentWave>= enemysWave.Length)
         {
-            UIManager.instance.WinScreen(20);
+            UIManager.instance.WinScreen();
         }
         else
         {

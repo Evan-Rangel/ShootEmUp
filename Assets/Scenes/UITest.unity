@@ -1368,17 +1368,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6765441604234168593, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: heartImage
-      value: 
-      objectReference: {fileID: -201767618, guid: a8d9d073dfec9e3469cd90c28266f4e8, type: 3}
     - target: {fileID: 6765441604234168622, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_Name
       value: UIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765441604294430349, guid: fc3e4f20467f71142949248183587341, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Button backToGameButton;
-
+    [SerializeField] Button retryButton;
     [SerializeField] Transform leftPanelPosTarget;
     [SerializeField] Transform rightPanelPosTarget;
     [SerializeField] Transform PausePanelPosTarget;
@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
     public void LoseScreen()
     {
         loseScreen.SetActive(true);
-
+        retryButton.Select();
         Time.timeScale = 0;
     }
     public void WinScreen()

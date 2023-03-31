@@ -27,7 +27,7 @@ public class Player117 : MonoBehaviour
     private Vector2 moveInput;
     private PolygonCollider2D colliderPlayer;
     private Rigidbody2D rb;
-    private PlayerInput playerInput;
+    [SerializeField] PlayerInput playerInput;
     //Disparo Variables
     [Header("Player Bullet Atributes")]
     [SerializeField] private float laserOffset;
@@ -77,11 +77,11 @@ public class Player117 : MonoBehaviour
         //Vida del Player
         if (life <= 0 && !activarSM)
         {
-            UIManager.instance.LoseScreen();
             speed = 0;
             animatorPlayer.SetBool("Morir", true);
             colliderPlayer.enabled = false;
             //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(morirSonido, 0.2f);
+            UIManager.instance.LoseScreen();
             activarSM = true;
             StartCoroutine(desactivarPlayer());
         }
@@ -189,7 +189,7 @@ public class Player117 : MonoBehaviour
     public void Ganaste()
     {
         animatorPlayer.SetBool("Ganar", true);
-        Musica.InstanceSonidos.EjecutarMusica(bossGanaste, 0.2f);
+       // Musica.InstanceSonidos.EjecutarMusica(bossGanaste, 0.2f);
     }
 
     IEnumerator reactivarColliderPlayer()

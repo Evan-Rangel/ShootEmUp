@@ -93,14 +93,22 @@ public class TutorialScript : MonoBehaviour
     
     IEnumerator Animation()
     {
-        for (int i = 0; i < tutorialData[triggerNumber].TutorialSprite.Length; i++)
+        if (tutorialData[triggerNumber].TutorialSprite.Length>0)
         {
-            holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[i];
-            if (i== tutorialData[triggerNumber].TutorialSprite.Length-1)
+
+            for (int i = 0; i < tutorialData[triggerNumber].TutorialSprite.Length; i++)
             {
-                i = 0;
+                holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[i];
+                if (i== tutorialData[triggerNumber].TutorialSprite.Length-1)
+                {
+                    i = 0;
+                }
+                yield return new WaitForSeconds(0.15f);
             }
-            yield return new WaitForSeconds(0.15f);
+        }
+        else
+        {
+            yield return null;
         }
     }
 }

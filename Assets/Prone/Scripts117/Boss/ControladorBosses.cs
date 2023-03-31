@@ -94,8 +94,8 @@ public class ControladorBosses : MonoBehaviour
             }
             if (enemyParts[3].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
             {
-                Musica.InstanceSonidos.PararMusica();
-                ControladorDeSonidos.InstanceSonidos.PararSonidos();
+                //Musica.InstanceSonidos.PararMusica();
+                //ControladorDeSonidos.InstanceSonidos.PararSonidos();
                 enemyParts[4].SetActive(false);
                 ganastePlayer = true;
                 UIManager.instance.WinScreen();

@@ -17,7 +17,7 @@ MonoBehaviour:
   enemyHealth: 20
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 2
+  attackType: 3
   moveAttackType: 0
   score: 400
   bulletDamage: 2

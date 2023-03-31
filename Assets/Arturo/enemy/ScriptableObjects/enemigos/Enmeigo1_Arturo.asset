@@ -17,7 +17,7 @@ MonoBehaviour:
   enemyHealth: 3
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 1
+  attackType: 3
   moveAttackType: 0
   score: 50
   bulletDamage: 2
@@ -25,7 +25,7 @@ MonoBehaviour:
   bulletAngleSum: 0
   bulletInitialAngle: 180
   bulletTimer: 1
-  numberOfProjectiles: 1
+  numberOfProjectiles: 10
   distanceBetweenProjectiles: 4
   projectileSpeed: 2
   enemyPrefab: {fileID: 3332690132904571883, guid: d96960ab6bc089942a99726ab635ef65, type: 3}

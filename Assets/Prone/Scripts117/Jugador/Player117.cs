@@ -66,7 +66,6 @@ public class Player117 : MonoBehaviour
         //Animator del Personaje
         animatorPlayer = GetComponent<Animator>();
         UIManager.Instance.SetHeats(life);
-        playerInput.currentActionMap = playerInput.actions.actionMaps[0];
     }
 
     void Update()

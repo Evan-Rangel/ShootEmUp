@@ -67,7 +67,6 @@ public class MenuController : MonoBehaviour
         volumeText.text = volumeSlider.value.ToString();
         musicSlider.value = musicSlider.maxValue;
         musicText.text = musicSlider.value.ToString();
-
         resolution = Screen.currentResolution.ToString();
         SetQualityText();
     }

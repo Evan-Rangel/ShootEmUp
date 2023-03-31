@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text finalWinScoreText;
 
     [SerializeField] PlayerInput playerInput;
+
     [SerializeField] Button backToGameButton;
     [SerializeField] Button retryButton;
     [SerializeField] Transform leftPanelPosTarget;
@@ -63,6 +64,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         playerInput = gameObject.GetComponent<PlayerInput>();
+        playerInput.enabled = false;
         levelText.text = SceneManager.GetActiveScene().name;
     }
     private void Start()
@@ -101,9 +103,9 @@ public class UIManager : MonoBehaviour
             }
             else
             {
+
                 backToGameButton.Select();
                 backToGameButton.gameObject.SetActive(false);
-
                 Time.timeScale = 1;
 
                 panelPause.transform.LeanMove(PausetPanelPos,0.2f);

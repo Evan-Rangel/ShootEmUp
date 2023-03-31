@@ -33,6 +33,7 @@ public class ControlOleadas : MonoBehaviour
         {
             waveObjects[i].GetComponent<PolygonCollider2D>().enabled = true;
             waveObjects[i].GetComponent<ControladorDeEnemigos>().enabled = true;
+            
         }
     }
     public void EnemyDeath(GameObject enemy)
@@ -51,7 +52,8 @@ public class ControlOleadas : MonoBehaviour
         currentWave++;
         if (currentWave>= enemysWave.Length)
         {
-            UIManager.instance.WinScreen();
+
+            //UIManager.instance.WinScreen();
         }
         else
         {
@@ -63,11 +65,20 @@ public class ControlOleadas : MonoBehaviour
     {
         for (int i = 0; i < enemysWave[currentWave]; i++)
         {
-            Debug.Log(waveObjects.Count);
-            waveObjects[i].GetComponent<ControladorMovimiento>().enabled = true;
+            if (waveObjects[i].GetComponent<ControladorBosses>())
+            {
+                waveObjects[i].GetComponent<ControladorBosses>().enabled = true;
+            }
+            else
+            {
+                waveObjects[i].GetComponent<ControladorMovimiento>().enabled = true;
+            }
         }
         yield return new WaitForSeconds(3);
-        ActivarColliders();
+        if (!waveObjects[0].GetComponent<ControladorBosses>())
+        {
+            ActivarColliders();
+        }
         StopCoroutine(Posicionar());
     }
 }

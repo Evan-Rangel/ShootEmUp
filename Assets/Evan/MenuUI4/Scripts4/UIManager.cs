@@ -163,7 +163,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void LoseScreen()
+    public void LoseScreen()
     {
         loseScreen.SetActive(true);
 

@@ -15,7 +15,7 @@ public class ControladorBosses : MonoBehaviour
 
     private void Start()
     {
-        Musica.InstanceSonidos.EjecutarMusica(bossMusic, 0.2f);
+       // Musica.InstanceSonidos.EjecutarMusica(bossMusic, 0.2f);
         enemyParts[0].GetComponent<PolygonCollider2D>().enabled = false;
         enemyParts[1].GetComponent<PolygonCollider2D>().enabled = false;
         enemyParts[2].GetComponent<PolygonCollider2D>().enabled = false;
@@ -38,12 +38,12 @@ public class ControladorBosses : MonoBehaviour
 
     private void Fase1()
     {
-        //if (enemyParts[1].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
+        if (enemyParts[1].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
         {
             enemyParts[2].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.2f;
             enemyParts[0].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.1f;
         }
-        //if (enemyParts[2].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
+        if (enemyParts[2].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
         {
             enemyParts[1].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.2f;
             enemyParts[0].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.1f;
@@ -52,20 +52,20 @@ public class ControladorBosses : MonoBehaviour
 
     private void Fase2()
     {
-        //if (enemyParts[1].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0 && enemyParts[2].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0 && enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth > 0)
+        if (enemyParts[1].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0 && enemyParts[2].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0 && enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth > 0)
         {
-            //enemyParts[0].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2", true);
-            //enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2", true);
+            enemyParts[0].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2", true);
+            enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2", true);
             if (salirDeFase1 == false)
             {
                 enemyParts[0].GetComponent<ControladorDeEnemigos>().enabled = false;
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().enabled = false;
                 StartCoroutine(EsperarFase2());
             }
-            //if (enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth <= 5)
+            if (enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth <= 5)
             {
-                //enemyParts[0].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2Mitad", true);
-                //enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2Mitad", true);
+                enemyParts[0].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2Mitad", true);
+                enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase2Mitad", true);
                 enemyParts[0].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.4f;
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().bulletTimer = 2.5f;
             }
@@ -74,38 +74,39 @@ public class ControladorBosses : MonoBehaviour
 
     private void Fase3()
     {
-        //if (enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
+        if (enemyParts[0].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
         {
-            //enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase3", true);
+            enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase3", true);
             if (salirDeFase2 == false)
             {
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().enabled = false;
                 StartCoroutine(EsperarFase3());
             }
-            //if (enemyParts[3].GetComponent<ControladorDeEnemigos>().enemyHealth <= 5)
+            if (enemyParts[3].GetComponent<ControladorDeEnemigos>().enemyHealth <= 5)
             {
                 enemyParts[4].SetActive(true);
-                //enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase3Mitad", true);
+                enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Fase3Mitad", true);
                 StartCoroutine(AtqueEspecial());
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().attackType = 1;
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().bulletInitialAngle = 0;
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().bulletTimer = 1.4f;
                 enemyParts[3].GetComponent<ControladorDeEnemigos>().numberOfProyectiles = 10;
             }
-            //if (enemyParts[3].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
+            if (enemyParts[3].GetComponent<ControladorDeEnemigos>().enemyHealth <= 0)
             {
                 Musica.InstanceSonidos.PararMusica();
                 ControladorDeSonidos.InstanceSonidos.PararSonidos();
                 enemyParts[4].SetActive(false);
                 ganastePlayer = true;
+                UIManager.instance.WinScreen();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Player117>().Ganaste();
             }
         }
     }
 
-    IEnumerator EsperarIntroduccion()
+    public IEnumerator EsperarIntroduccion()
     {
-        yield return new WaitForSeconds(16);
+        yield return new WaitForSeconds(24);
         enemyParts[1].GetComponent<PolygonCollider2D>().enabled = true;
         enemyParts[2].GetComponent<PolygonCollider2D>().enabled = true;
         enemyParts[0].GetComponent<ControladorDeEnemigos>().enabled = true;
@@ -130,7 +131,7 @@ public class ControladorBosses : MonoBehaviour
         referenciaCE.enabled = true;
         enemyParts[3].GetComponent<PolygonCollider2D>().enabled = true;
         enemyParts[3].GetComponent<ControladorDeEnemigos>().numberOfProyectiles = 3;
-        //enemyParts[3].GetComponent<ControladorDeEnemigos>().angleSum = 10;
+        enemyParts[3].GetComponent<ControladorDeEnemigos>().angleSum = 10;
         enemyParts[3].GetComponent<ControladorDeEnemigos>().bulletInitialAngle = 145;
         enemyParts[3].GetComponent<ControladorDeEnemigos>().bulletTimer = 0.4f;
         enemyParts[3].GetComponent<ControladorDeEnemigos>().attackType = 4;        
@@ -141,7 +142,7 @@ public class ControladorBosses : MonoBehaviour
     {
         yield return new WaitForSeconds(aEspecialAnimation.length);
         enemyParts[4].GetComponent<BoxCollider2D>().enabled = true;
-       // enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Especial", true);
-        ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(ataqueE, 0.12f);
+       enemyParts[3].GetComponent<ControladorDeEnemigos>().animator.SetBool("Especial", true);
+       // ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(ataqueE, 0.12f);
     }
 }

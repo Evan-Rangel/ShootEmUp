@@ -41,7 +41,15 @@ public class Disparo117 : MonoBehaviour
         bulletData[1] = _bulletData;
         gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[1].Sprite;
         //gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[1].Animator;
-        gameObject.transform.localScale = Vector3.one * 0.5f;
+        if (bulletData[1].TagName=="BulletBoss")
+        {
+            gameObject.transform.localScale = Vector3.one * 4;
+
+        }
+        else
+        {
+            gameObject.transform.localScale = Vector3.one * 0.5f;
+        }
 
         gameObject.tag = bulletData[1].TagName;
         transform.rotation = Quaternion.Euler(0, 0, _ang);

@@ -77,6 +77,7 @@ public class Player117 : MonoBehaviour
         //Vida del Player
         if (life <= 0 && !activarSM)
         {
+            UIManager.instance.LoseScreen();
             speed = 0;
             animatorPlayer.SetBool("Morir", true);
             colliderPlayer.enabled = false;

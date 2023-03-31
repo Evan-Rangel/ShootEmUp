@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9195fe8c2ebe11448493ea37e92cfae, type: 3}
+  m_Name: BulletBossRCannon
+  m_EditorClassIdentifier: 
+  bulletName: Bullet Right Cannon
+  description: Cannon Derecho del jefe
+  bulletDamage: 1
+  tagName: BulletBoss
+  animator: {fileID: 9100000, guid: 59811c8bcbc84064c86fa7dbcda8b2ad, type: 2}
+  sprite: {fileID: 1682050443, guid: f0ae4f7e3ed2ddb42b0c1ca3d3eaa0b4, type: 3}

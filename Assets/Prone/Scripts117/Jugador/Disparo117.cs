@@ -14,6 +14,7 @@ public class Disparo117 : MonoBehaviour
         if (other.CompareTag("Enemigos") && transform.CompareTag("BulletPlayer"))
         {
             other.GetComponent<ControladorDeEnemigos>().RecibirDanio(bulletData[0].BulletDamage);
+            other.GetComponent<ControladorDeEnemigos>().cronometro = 0.3f;
             ResetProps();
         }
 

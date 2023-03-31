@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9195fe8c2ebe11448493ea37e92cfae, type: 3}
   m_Name: BulletEnemigo6_Arturo
   m_EditorClassIdentifier: 
-  bulletName: 
+  bulletName: BulletEnemy
   description: 
-  bulletDamage: 0
-  tagName: 
-  animator: {fileID: 0}
-  sprite: {fileID: 0}
+  bulletDamage: 1
+  tagName: BulletEnemy
+  animator: {fileID: 9100000, guid: 5262b7bd8a2f14f4d84d96fd95a076f5, type: 2}
+  sprite: {fileID: 21300000, guid: cee3ddd4a7588a340a9bb5a2cbd579a5, type: 3}

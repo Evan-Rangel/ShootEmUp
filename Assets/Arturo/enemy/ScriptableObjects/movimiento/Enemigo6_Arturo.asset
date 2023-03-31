@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafd9781fb2ba2b47943afec44d9b21c, type: 3}
   m_Name: Enemigo6_Arturo
   m_EditorClassIdentifier: 
-  velocity: 0
-  typeMovement: 
-  timeMovement: []
+  velocity: 3
+  typeMovement: 01000000020000000300000004000000020000000400000003000000090000000100000009000000
+  timeMovement:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

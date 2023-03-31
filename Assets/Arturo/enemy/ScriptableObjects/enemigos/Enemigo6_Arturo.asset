@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: Enemigo6_Arturo
   m_EditorClassIdentifier: 
-  enemyName: 
-  description: 
-  enemyHealth: 0
+  enemyName: Enemigo 6 de Prone
+  description: 'dificultad media '
+  enemyHealth: 20
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 2
   moveAttackType: 0
-  score: 0
-  bulletDamage: 0
-  bulletType: 0
-  bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
+  score: 400
+  bulletDamage: 2
+  bulletType: 3
+  bulletAngleSum: 80
+  bulletInitialAngle: 78
+  bulletTimer: 0.3
+  numberOfProjectiles: 8
   distanceBetweenProjectiles: 0
-  projectileSpeed: 0
-  enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  projectileSpeed: 3
+  enemyPrefab: {fileID: 5020282535847562051, guid: 7af162fbd8fb6c54ba5a67a11c5bdb0c, type: 3}
+  bulletData: {fileID: 11400000, guid: ce922ee898d56db468deb1e40cd31d7d, type: 2}

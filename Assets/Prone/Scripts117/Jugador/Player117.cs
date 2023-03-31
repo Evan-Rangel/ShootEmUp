@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 [System.Serializable]
 public class Boundary
@@ -25,6 +27,7 @@ public class Player117 : MonoBehaviour
     private Vector2 moveInput;
     private PolygonCollider2D colliderPlayer;
     private Rigidbody2D rb;
+    private PlayerInput playerInput;
     //Disparo Variables
     [Header("Player Bullet Atributes")]
     [SerializeField] private float laserOffset;
@@ -35,6 +38,7 @@ public class Player117 : MonoBehaviour
     [Header("Player Animation Atributes")]
     [SerializeField] private AnimationClip animacionMorir;
     private Animator animatorPlayer;
+
 
     //Sonidos
     [SerializeField] private AudioClip disparoSonido;
@@ -53,6 +57,10 @@ public class Player117 : MonoBehaviour
     public float speed_shine;
     public float cronometro;
 
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
     void Start()
     {
         //Rb del Personaje
@@ -77,13 +85,13 @@ public class Player117 : MonoBehaviour
         }
 
         //Movimiento del Personaje
-        moveX = Input.GetAxisRaw("Horizontal");
-        moveY = Input.GetAxisRaw("Vertical");
+        moveX = playerInput.actions["Move"].ReadValue<Vector2>().x;
+        moveY = playerInput.actions["Move"].ReadValue<Vector2>().y;
         animatorPlayer.SetFloat("MovX", moveX); //Animacion del Personaje
-        moveInput = new Vector2(moveX, moveY).normalized;
+        moveInput = playerInput.actions["Move"].ReadValue<Vector2>().normalized;
 
         //Disparo
-        if (Input.GetButtonDown("Fire1"))
+        if (playerInput.actions["Fire"].WasPressedThisFrame())
         {
             //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
             GameObject laser;

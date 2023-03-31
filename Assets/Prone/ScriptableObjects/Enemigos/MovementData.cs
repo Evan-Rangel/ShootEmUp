@@ -7,7 +7,6 @@ public class MovementData : ScriptableObject
 {
 
     [SerializeField] float velocity;
-    [SerializeField] Vector2 direction;
     [SerializeField] int[] typeMovement;
     [SerializeField] float[] timeMovement;
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3790313811598575670}
   m_Layer: 0
   m_Name: EnemigoDispara1
-  m_TagString: Untagged
+  m_TagString: Enemigos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2158766264638325406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.27, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -174,5 +174,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 5a3d87fdd781d9945b3ed9ea1f1f6156, type: 2}
+  angleSum: 0
   enemyHealth: 3
+  attackType: 0
+  numberOfProyectiles: 0
+  bulletTimer: 0
+  bulletInitialAngle: 0
   animacionMorir: {fileID: 7400000, guid: 51f8d6bea56df774b96efeab8442d391, type: 2}
+  animator: {fileID: 0}
+  tiempo_brillo: 0
+  spr: []
+  cambio: 0
+  color_: []
+  speed_shine: 0
+  cronometro: 0
+  disparoSonido: {fileID: 0}
+  "da\xF1oSonido": {fileID: 0}
+  morirSonido: {fileID: 0}

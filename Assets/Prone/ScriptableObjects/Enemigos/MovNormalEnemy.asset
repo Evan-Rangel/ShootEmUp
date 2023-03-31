@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafd9781fb2ba2b47943afec44d9b21c, type: 3}
   m_Name: MovNormalEnemy
   m_EditorClassIdentifier: 
-  velocity: 1
+  velocity: 0.5
   direction: {x: 0, y: 0}
   typeMovement: 010000000600000002000000
   timeMovement:
   - 1
-  - 4
-  - 10
+  - 1
+  - 1

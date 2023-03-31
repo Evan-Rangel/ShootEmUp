@@ -17,6 +17,7 @@ MonoBehaviour:
   enemyHealth: 6
   enemyDamage: 0
   enemySpeed: 0
+<<<<<<< HEAD
   attackType: 3
   moveAttackType: 0
   bulletDamage: 0
@@ -27,5 +28,17 @@ MonoBehaviour:
   numberOfProjectiles: 5
   distanceBetweenProjectiles: 20
   projectileSpeed: 2
+=======
+  attackType: 1
+  moveAttackType: 0
+  bulletDamage: 0
+  bulletType: 1
+  bulletAngleSum: 0
+  bulletInitialAngle: 180
+  bulletTimer: 1
+  numberOfProjectiles: 1
+  distanceBetweenProjectiles: 30
+  projectileSpeed: 3
+>>>>>>> 8ecd46b17ee4e5c29c53a726b3736d531a0037ab
   enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}
   bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}

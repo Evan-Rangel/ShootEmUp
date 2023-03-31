@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
+  m_Name: BossWingRight
+  m_EditorClassIdentifier: 
+  enemyName: Boss Final Right Wing
+  description: Esta sera el ala derecha del boss
+  enemyHealth: 5
+  enemyDamage: 1
+  enemySpeed: 0
+  attackType: 1
+  moveAttackType: 0
+  bulletDamage: 0
+  bulletType: 1
+  bulletAngleSum: 0
+  bulletInitialAngle: 180
+  bulletTimer: 0.7
+  numberOfProjectiles: 1
+  distanceBetweenProjectiles: 0
+  projectileSpeed: 3
+  enemyPrefab: {fileID: 0}
+  bulletData: {fileID: 11400000, guid: eaf7c4cd50d94fc42a33bf38ced5bc39, type: 2}

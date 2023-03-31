@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: EnemigoDispara1
   m_EditorClassIdentifier: 
-  enemyName: Banshe
-  description: Este enemigo avanza se posiciona y empieza a disparar en varias direcciones
+  enemyName: Enemigo1
+  description: Enemigo de Numero 1 que dispara en una direccion
   enemyHealth: 6
-  enemyDamage: 1
-  enemySpeed: 7
-  attackType: 4
-  moveAttackType: 1
+  enemyDamage: 0
+  enemySpeed: 0
+  attackType: 2
+  moveAttackType: 0
   bulletDamage: 0
   bulletType: 1
-  bulletAngleSum: 10
-  bulletInitialAngle: 120
-  bulletTimer: 0.2
-  numberOfProjectiles: 5
-  distanceBetweenProjectiles: 20
-  projectileSpeed: 5
+  bulletTimer: 0.25
+  numberOfProjectiles: 2
+  projectileSpeed: 2
   enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}
   bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}

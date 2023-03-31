@@ -12,15 +12,38 @@ public class ControladorDeEnemigos : MonoBehaviour
     int cont = 0;
     int mult = 1;
     [SerializeField] int enemyHealth;
+    [SerializeField] public int attackType;
+    [SerializeField] public int numberOfProyectiles;
+    [SerializeField] public float bulletTimer;
+    [SerializeField] public int bulletInitialAngle;
 
     private PolygonCollider2D colliderEnemigo;
     [SerializeField] private AnimationClip animacionMorir;
     private Animator animator;
 
+    //Animacion de Parpadeo
+    public float tiempo_brillo;
+    public SpriteRenderer[] spr;
+    public bool cambio;
+    public Color[] color_;
+    public float speed_shine;
+    public float cronometro;
+
+    //Sonidos
+    [SerializeField] private AudioClip disparoSonido;
+    [SerializeField] public AudioClip dañoSonido;
+    [SerializeField] public AudioClip morirSonido;
+    bool activarSM = false;
+
     private void Start()
     {
         angleSum = enemyData.BulletInitialAngle;
         enemyHealth = enemyData.EnemyHealth;
+        attackType = enemyData.AttackType;
+        numberOfProyectiles = enemyData.NumberOfProjectiles;
+        bulletTimer = enemyData.BulletTimer;
+        bulletInitialAngle = enemyData.BulletInitialAngle;
+
         //Tipo de Disparo
         timer = enemyData.BulletTimer;
         colliderEnemigo = GetComponent<PolygonCollider2D>();
@@ -46,45 +69,82 @@ public class ControladorDeEnemigos : MonoBehaviour
         if (timer <= 0)
         {
 
-            switch (enemyData.AttackType)
-            { 
-                case 1: case 2://Ataque 1 y 2, solo dependen del bulletAngleSum
-                    SpawnProjectiles(angleSum, 360 / enemyData.NumberOfProjectiles);
-                    angleSum += enemyData.BulletAngleSum;
-                    timer = enemyData.BulletTimer;
-                break;
-            case 3://Ataque 3 es petalo
-                
-                    SpawnProjectiles(angleSum, 360 / enemyData.NumberOfProjectiles);
-                    SpawnProjectiles(-angleSum, 360 / enemyData.NumberOfProjectiles);
-                    angleSum += enemyData.BulletAngleSum;
+            switch (attackType)
+            {
+                case 1:
+                case 2://Ataque 1 y 2, solo dependen del bulletAngleSum
+                    SpawnProjectiles(bulletInitialAngle, 360 / numberOfProyectiles);
+                    bulletInitialAngle += angleSum;
+                    timer = bulletTimer;
+                    break;
+                case 3://Ataque 3 es petalo
+
+                    SpawnProjectiles(bulletInitialAngle, 360 / numberOfProyectiles);
+                    SpawnProjectiles(-bulletInitialAngle, 360 / numberOfProyectiles);
+                    bulletInitialAngle += angleSum;
 
                     //angleSumI -= enemyData.BulletAngleSum;
-                    timer = enemyData.BulletTimer;
-                break;
-            case 4: //Ataque 4 es vuelta y regreso
+                    timer = bulletTimer;
+                    break;
+                case 4: //Ataque 4 es vuelta y regreso
                     if (cont == 6)
                     {
                         mult = -mult;
                         cont = 0;
                     }
-                    SpawnProjectiles(angleSum, 360/enemyData.DistanceBetweenProjectiles);
-                    angleSum += mult*enemyData.BulletAngleSum;
+                    SpawnProjectiles(bulletInitialAngle, 360 / enemyData.DistanceBetweenProjectiles);
+                    bulletInitialAngle += mult * angleSum;
                     cont++;
-                    timer = enemyData.BulletTimer;
-                break;
-            default:
-                break;
+                    timer = bulletTimer;
+                    break;
+                default:
+                    break;
             }
-            timer = enemyData.BulletTimer;
+            timer = bulletTimer;
         }
 
 
     }
+    //Brilo de daño
+    public void Brillo()
+    {
+        if (cronometro > 0)
+        {
+            cronometro -= 1 * Time.deltaTime;
+            spr[1].sprite = spr[0].sprite;
+            tiempo_brillo += speed_shine * Time.deltaTime;
+
+            switch (cambio)
+            {
+                case true:
+
+                    spr[1].color = color_[0];
+                    break;
+
+                case false:
+                    spr[1].color = color_[1];
+                    break;
+            }
+
+            if (tiempo_brillo > 1)
+            {
+                cambio = !cambio;
+                tiempo_brillo = 0;
+            }
+        }
+
+        else
+        {
+            cronometro = 0;
+            spr[1].color = color_[0];
+        }
+    }
+
     //Funcion de Recibir daño (Movi esto Evan)
     public void RecibirDanio(int danio)
     {
         enemyHealth = enemyHealth - danio;
+        ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.12f);
     }
     //Desactivar el Objeto Luego de la animacion
     IEnumerator desactivarEnemigo()
@@ -98,16 +158,17 @@ public class ControladorDeEnemigos : MonoBehaviour
         float angleStep = _angleStep;
         float angle = addAngle;
         startPoint = transform.position;
-        
-        for (int i = 0; i < enemyData.NumberOfProjectiles; i++)
+
+        for (int i = 0; i < numberOfProyectiles; i++)
         {
-            
+
             float projectileDirXPosition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYPosition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
             Vector2 projectileVector = new Vector2(projectileDirXPosition, projectileDirYPosition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * enemyData.ProjectileSpeed;
 
             GameObject tmpObj = DisparoPool117.Instance.RequestLaser();
+            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.08f);
             tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
 
             angle += angleStep;

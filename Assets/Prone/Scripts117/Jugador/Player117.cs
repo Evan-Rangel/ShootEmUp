@@ -10,6 +10,7 @@ public class Boundary
 
 public class Player117 : MonoBehaviour
 {
+    [SerializeField] ControladorBosses referenciaCB;
     [Header("Bullet Data")]
     [SerializeField] BulletData bulletData;
     //Limites Variables
@@ -35,6 +36,23 @@ public class Player117 : MonoBehaviour
     [SerializeField] private AnimationClip animacionMorir;
     private Animator animatorPlayer;
 
+    //Sonidos
+    [SerializeField] private AudioClip disparoSonido;
+    [SerializeField] public AudioClip dañoSonido;
+    [SerializeField] public AudioClip morirSonido;
+    [SerializeField] private AudioClip bossMusic;
+    [SerializeField] private AudioClip bossGanaste;
+    bool activarSM = false;
+    bool doOnce = true;
+
+    //Animacion de Parpadeo
+    public float tiempo_brillo;
+    public SpriteRenderer[] spr;
+    public bool cambio;
+    public Color[] color_;
+    public float speed_shine;
+    public float cronometro;
+
     void Start()
     {
         //Rb del Personaje
@@ -46,11 +64,15 @@ public class Player117 : MonoBehaviour
 
     void Update()
     {
+        Brillo();
         //Vida del Player
-        if (life <= 0)
+        if (life <= 0 && activarSM == false)
         {
+            speed = 0;
             animatorPlayer.SetBool("Morir", true);
             colliderPlayer.enabled = false;
+            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(morirSonido, 0.2f);
+            activarSM = true;
             StartCoroutine(desactivarPlayer());
         }
 
@@ -63,12 +85,14 @@ public class Player117 : MonoBehaviour
         //Disparo
         if (Input.GetButtonDown("Fire1"))
         {
+            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
             GameObject laser;
             if (shotLevel == 1 || shotLevel == 3)
             {
                 laser = DisparoPool117.Instance.RequestLaser();
+                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[0].position.x, shotSpawns[0].position.y) + Vector2.up * laserOffset, bulletData);
-                laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
+                laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;                
                 //laser.transform.position = shotSpawns[0].transform.position + Vector3.up * laserOffset;
                 //laser.transform.rotation = gameObject.transform.rotation;
 
@@ -76,13 +100,14 @@ public class Player117 : MonoBehaviour
             if (shotLevel == 2 || shotLevel == 3)
             {
                 laser = DisparoPool117.Instance.RequestLaser();
+                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[1].position.x, shotSpawns[1].position.y) + Vector2.up * laserOffset, bulletData);
                 laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
                 laser = DisparoPool117.Instance.RequestLaser();
+                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[2].position.x, shotSpawns[2].position.y) + Vector2.up * laserOffset, bulletData);
                 laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
             }
-
         }
     }
 
@@ -93,9 +118,65 @@ public class Player117 : MonoBehaviour
         rb.MovePosition(rb.position + moveInput * speed * Time.fixedDeltaTime);
     }
 
+    //Brilo de daño
+    public void Brillo()
+    {
+        if (cronometro > 0)
+        {
+            cronometro -= 1 * Time.deltaTime;
+            spr[1].sprite = spr[0].sprite;
+            tiempo_brillo += speed_shine * Time.deltaTime;
+
+            switch (cambio)
+            {
+                case true:
+
+                    spr[1].color = color_[0];
+                    break;
+
+                case false:
+                    spr[1].color = color_[1];
+                    break;
+            }
+
+            if (tiempo_brillo > 1)
+            {
+                cambio = !cambio;
+                tiempo_brillo = 0;
+            }
+        }
+
+        else
+        {
+            cronometro = 0;
+            spr[1].color = color_[0];
+        }
+    }
+
     public void RecibirDanio(int danio)
     {
         life = life - danio;
+        ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(dañoSonido, 0.2f);
+        Recuperarse();
+        cronometro = 1.5f;
+    }
+
+    public void Recuperarse()
+    {
+        colliderPlayer.enabled = false;
+        StartCoroutine(reactivarColliderPlayer());
+    }
+
+    public void Ganaste()
+    {
+        animatorPlayer.SetBool("Ganar", true);
+        Musica.InstanceSonidos.EjecutarMusica(bossGanaste, 0.2f);
+    }
+
+    IEnumerator reactivarColliderPlayer()
+    {
+        yield return new WaitForSeconds(1.5f);
+        colliderPlayer.enabled = true;
     }
 
     IEnumerator desactivarPlayer()
@@ -103,21 +184,5 @@ public class Player117 : MonoBehaviour
         yield return new WaitForSeconds(animacionMorir.length);
         gameObject.SetActive(false);
     }
-
-    /*
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && transform.CompareTag("BulletEnemy"))
-        {
-            life = life - 1;
-        }
-
-        if (other.CompareTag("Paredes"))
-        {
-            other.GetComponent<Disparo117>().ResetProps();           
-        }
-    }
-    */
-    //Desactivar el Objeto Luego de la animacion
 
 }

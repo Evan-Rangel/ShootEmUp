@@ -8,10 +8,10 @@ public class ControladorDeEnemigos : MonoBehaviour
     Vector2 startPoint;
     const float radius = 1;
     float timer;
-    int angleSum;
+    public int angleSum;
     int cont = 0;
     int mult = 1;
-    [SerializeField] int enemyHealth;
+    public  int enemyHealth;
     [SerializeField] public int attackType;
     [SerializeField] public int numberOfProyectiles;
     [SerializeField] public float bulletTimer;
@@ -19,7 +19,7 @@ public class ControladorDeEnemigos : MonoBehaviour
 
     private PolygonCollider2D colliderEnemigo;
     [SerializeField] private AnimationClip animacionMorir;
-    private Animator animator;
+    public  Animator animator;
 
     //Animacion de Parpadeo
     public float tiempo_brillo;
@@ -144,7 +144,7 @@ public class ControladorDeEnemigos : MonoBehaviour
     public void RecibirDanio(int danio)
     {
         enemyHealth = enemyHealth - danio;
-        ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.12f);
+        //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.12f);
     }
     //Desactivar el Objeto Luego de la animacion
     IEnumerator desactivarEnemigo()
@@ -168,7 +168,7 @@ public class ControladorDeEnemigos : MonoBehaviour
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * enemyData.ProjectileSpeed;
 
             GameObject tmpObj = DisparoPool117.Instance.RequestLaser();
-            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.08f);
+           // ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.08f);
             tmpObj.GetComponent<Disparo117>().SetProps(projectileMoveDirection, transform.position, -angle, enemyData.BulletData);
 
             angle += angleStep;

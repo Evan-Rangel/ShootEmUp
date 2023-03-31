@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafd9781fb2ba2b47943afec44d9b21c, type: 3}
   m_Name: Enmigo1_Arturo
   m_EditorClassIdentifier: 
-  velocity: 0
-  direction: {x: 0, y: 0}
-  typeMovement: 
-  timeMovement: []
+  velocity: 2
+  typeMovement: 0100000002000000
+  timeMovement:
+  - 1
+  - 1

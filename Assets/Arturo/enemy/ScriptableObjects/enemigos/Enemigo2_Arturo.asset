@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: Enemigo2_Arturo
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Enemigo 2
   description: 
-  enemyHealth: 0
+  enemyHealth: 1
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 2
   moveAttackType: 0
-  bulletDamage: 0
-  bulletType: 0
-  bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
-  distanceBetweenProjectiles: 0
-  projectileSpeed: 0
-  enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  score: 0
+  bulletDamage: 2
+  bulletType: 2
+  bulletAngleSum: 56
+  bulletInitialAngle: 180
+  bulletTimer: 0.5
+  numberOfProjectiles: 5
+  distanceBetweenProjectiles: 5
+  projectileSpeed: 2
+  enemyPrefab: {fileID: 6677054083370221488, guid: c4a11a72df3ab3c4d957e57d0f58f1e8, type: 3}
+  bulletData: {fileID: 11400000, guid: 3f0a25933e7d6244ab4fa00cf5ff94d9, type: 2}

@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: Enemigo4_Arturo
   m_EditorClassIdentifier: 
-  enemyName: 
-  description: 
-  enemyHealth: 0
+  enemyName: Enemigo 4
+  description: 10 de vida vienen en un oleada de 3
+  enemyHealth: 10
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 2
   moveAttackType: 0
-  bulletDamage: 0
-  bulletType: 0
-  bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
-  distanceBetweenProjectiles: 0
-  projectileSpeed: 0
-  enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  score: 250
+  bulletDamage: 2
+  bulletType: 2
+  bulletAngleSum: 80
+  bulletInitialAngle: 190
+  bulletTimer: 0.5
+  numberOfProjectiles: 5
+  distanceBetweenProjectiles: 5
+  projectileSpeed: 2
+  enemyPrefab: {fileID: 3262477539156579183, guid: 0a8d9fae7536b074b872b5e3d791e58b, type: 3}
+  bulletData: {fileID: 11400000, guid: 4b4482079b203b640bba252856928502, type: 2}

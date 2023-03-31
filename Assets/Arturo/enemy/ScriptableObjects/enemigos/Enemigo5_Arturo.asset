@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: Enemigo5_Arturo
   m_EditorClassIdentifier: 
-  enemyName: 
-  description: 
-  enemyHealth: 0
+  enemyName: Enemigo 5
+  description: ' 120 de vida dificultad media'
+  enemyHealth: 20
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 3
   moveAttackType: 0
-  bulletDamage: 0
-  bulletType: 0
-  bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
-  distanceBetweenProjectiles: 0
-  projectileSpeed: 0
-  enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  score: 0
+  bulletDamage: 2
+  bulletType: 3
+  bulletAngleSum: 80
+  bulletInitialAngle: 62
+  bulletTimer: 0.5
+  numberOfProjectiles: 5
+  distanceBetweenProjectiles: 5
+  projectileSpeed: 4
+  enemyPrefab: {fileID: 6336124477764096712, guid: 7e5b0503664ea264dbc6272238546ada, type: 3}
+  bulletData: {fileID: 11400000, guid: 6042cde1071e369438d309be259aeed9, type: 2}

@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
   m_Name: Enemigo3_Arturo
   m_EditorClassIdentifier: 
-  enemyName: 
-  description: 
-  enemyHealth: 0
+  enemyName: Enemigo 3 mini boss
+  description: Mini boss de 55 de vida
+  enemyHealth: 55
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 1
   moveAttackType: 0
-  bulletDamage: 0
-  bulletType: 0
-  bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
-  distanceBetweenProjectiles: 0
-  projectileSpeed: 0
-  enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  score: 500
+  bulletDamage: 2
+  bulletType: 2
+  bulletAngleSum: 82
+  bulletInitialAngle: 180
+  bulletTimer: 0.4
+  numberOfProjectiles: 10
+  distanceBetweenProjectiles: 6
+  projectileSpeed: 4
+  enemyPrefab: {fileID: 1571011684607983794, guid: c67dba9936191a54db82735c1eec51d2, type: 3}
+  bulletData: {fileID: 11400000, guid: 03a460a0ad0b5364497756c080613f08, type: 2}

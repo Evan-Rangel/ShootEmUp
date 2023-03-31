@@ -27,7 +27,7 @@ public class Disparo117 : MonoBehaviour
         {
             ResetProps();
         }
-
+        Debug.Log("Hola");
     }
     public void ResetProps()
     {
@@ -40,7 +40,7 @@ public class Disparo117 : MonoBehaviour
     {
         bulletData[1] = _bulletData;
         gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[1].Sprite;
-        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[1].Animator;
+        //gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[1].Animator;
         gameObject.tag = bulletData[1].TagName;
         transform.rotation = Quaternion.Euler(0, 0, _ang);
         transform.position = _pos;
@@ -51,8 +51,9 @@ public class Disparo117 : MonoBehaviour
     {
         bulletData[0] = _bulletData;
         gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[0].Sprite;
-        gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[0].Animator;
+        //gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[0].Animator;
         gameObject.tag = bulletData[0].TagName;
         transform.position = _pos;
     }
 }
+

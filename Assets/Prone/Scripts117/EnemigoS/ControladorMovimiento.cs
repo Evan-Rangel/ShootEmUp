@@ -8,7 +8,6 @@ public class ControladorMovimiento : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float dTime;
     int typeMovement;
-    float velocity;
     Vector2 direccion;
     private void Awake()
     {
@@ -32,43 +31,35 @@ public class ControladorMovimiento : MonoBehaviour
         switch (typeMovement)
         {
             case 1:
-                velocity = 1;
-                direccion = Vector2.down * velocity * movementData.Velocity;
+                direccion = Vector2.down * movementData.Velocity;
 
                 break;
             case 2:
-                velocity = 1;
 
-                direccion = Vector2.up * velocity * movementData.Velocity;
+                direccion = Vector2.up *  movementData.Velocity;
                 break;
             case 3:
-                velocity = 1;
-                direccion = Vector2.right * velocity * movementData.Velocity;
+                direccion = Vector2.right *  movementData.Velocity;
                 break;
             case 4:
-                velocity = 1;
 
-                direccion = Vector2.left * velocity * movementData.Velocity;
+                direccion = Vector2.left * movementData.Velocity;
                 break;
             case 5: //Esquina Derecha Arriba
-                velocity = 1;
 
-                direccion = new Vector2(1,1) * velocity * movementData.Velocity;
+                direccion = new Vector2(1,1) *  movementData.Velocity;
                 break;
             case 6://Esquina Derecha Abajo
-                velocity = 1;
 
-                direccion = new Vector2 (1,-1) * velocity * movementData.Velocity;
+                direccion = new Vector2 (1,-1) * movementData.Velocity;
                 break;
             case 7: //Esquina Izquierda Arriba
-                velocity = 1;
 
-                direccion = new Vector2(-1, 1) * velocity * movementData.Velocity;
+                direccion = new Vector2(-1, 1) * movementData.Velocity;
                 break;
             case 8://Esquina Izquierda Abajo
-                velocity = 1;
 
-                direccion = new Vector2(-1, -1) * velocity * movementData.Velocity;
+                direccion = new Vector2(-1, -1) * movementData.Velocity;
                 break;
             case 9:
                 direccion = Vector2.zero;

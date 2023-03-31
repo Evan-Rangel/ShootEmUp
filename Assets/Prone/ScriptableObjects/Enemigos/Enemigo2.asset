@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
-  m_Name: EnemigoDispara1
+  m_Name: Enemigo2
   m_EditorClassIdentifier: 
-  enemyName: Enemigo1
-  description: Enemigo de Numero 1 que dispara en una direccion
-  enemyHealth: 6
+  enemyName: 
+  description: 
+  enemyHealth: 0
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 1
+  attackType: 0
   moveAttackType: 0
   bulletDamage: 0
-  bulletType: 1
+  bulletType: 0
   bulletAngleSum: 0
-  bulletInitialAngle: 180
-  bulletTimer: 1
-  numberOfProjectiles: 1
-  distanceBetweenProjectiles: 30
-  projectileSpeed: 3
-  enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}
-  bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}
+  bulletInitialAngle: 0
+  bulletTimer: 0
+  numberOfProjectiles: 0
+  distanceBetweenProjectiles: 0
+  projectileSpeed: 0
+  enemyPrefab: {fileID: 0}
+  bulletData: {fileID: 0}

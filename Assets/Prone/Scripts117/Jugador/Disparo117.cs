@@ -33,7 +33,7 @@ public class Disparo117 : MonoBehaviour
     {
         gameObject.tag = "Untagged";
         gameObject.transform.rotation = Quaternion.identity;
-        Debug.Log(gameObject.transform.position);
+        //Debug.Log(gameObject.transform.position);
         gameObject.SetActive(false);
     }
     public void SetProps(Vector2 _vel, Vector2 _pos, float _ang, BulletData _bulletData)
@@ -41,6 +41,8 @@ public class Disparo117 : MonoBehaviour
         bulletData[1] = _bulletData;
         gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[1].Sprite;
         //gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[1].Animator;
+        gameObject.transform.localScale = Vector3.one * 0.25f;
+
         gameObject.tag = bulletData[1].TagName;
         transform.rotation = Quaternion.Euler(0, 0, _ang);
         transform.position = _pos;
@@ -51,6 +53,7 @@ public class Disparo117 : MonoBehaviour
     {
         bulletData[0] = _bulletData;
         gameObject.GetComponent<SpriteRenderer>().sprite = bulletData[0].Sprite;
+        gameObject.transform.localScale = Vector3.one*3;
         //gameObject.GetComponent<Animator>().runtimeAnimatorController = bulletData[0].Animator;
         gameObject.tag = bulletData[0].TagName;
         transform.position = _pos;

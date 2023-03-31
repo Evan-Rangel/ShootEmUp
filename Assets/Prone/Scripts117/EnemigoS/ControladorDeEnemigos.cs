@@ -150,7 +150,8 @@ public class ControladorDeEnemigos : MonoBehaviour
     IEnumerator desactivarEnemigo()
     {
         yield return new WaitForSeconds(animacionMorir.length);
-        gameObject.SetActive(false);
+        ControlOleadas.InstanceOleadas.EnemyDeath(gameObject);
+        //gameObject.SetActive(false);
     }
     //Movimiento, rotacion, posicion y Spawneo de balas
     private void SpawnProjectiles(int addAngle, float _angleStep)

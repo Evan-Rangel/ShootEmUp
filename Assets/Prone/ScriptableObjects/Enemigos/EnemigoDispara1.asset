@@ -17,11 +17,11 @@ MonoBehaviour:
   enemyHealth: 6
   enemyDamage: 1
   enemySpeed: 7
-  attackType: 3
+  attackType: 4
   moveAttackType: 1
   bulletDamage: 0
   bulletType: 1
-  bulletAngleSum: 80
+  bulletAngleSum: 10
   bulletInitialAngle: 120
   bulletTimer: 0.2
   numberOfProjectiles: 5

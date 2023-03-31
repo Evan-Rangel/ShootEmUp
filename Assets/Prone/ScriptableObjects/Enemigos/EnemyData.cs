@@ -14,6 +14,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] private float enemySpeed;
     [SerializeField] private int attackType;
     [SerializeField] private int moveAttackType;
+    [SerializeField] private int score;
     [Header("Enemy Bullet Atribute")]
     [Tooltip("Este daño es el de la bala del PLAYER el enemigo tiene su propia variable de daño")]
     [SerializeField] private int bulletDamage;
@@ -36,6 +37,7 @@ public class EnemyData : ScriptableObject
     [Header("Bullet Datas")]
     [SerializeField] BulletData bulletData;
 
+    public int Score { get { return score; } }
     public string EnemyName { get { return enemyName; } }
     public string Description { get { return description; } }
     public int EnemyHealth { get { return enemyHealth; } }

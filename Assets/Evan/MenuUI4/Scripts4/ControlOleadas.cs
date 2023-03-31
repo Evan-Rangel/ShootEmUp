@@ -49,8 +49,15 @@ public class ControlOleadas : MonoBehaviour
     public void NextWave()
     {
         currentWave++;
-        enemysAlive = enemysWave[currentWave];
-        StartCoroutine(Posicionar());
+        if (currentWave>= enemysWave.Length)
+        {
+            UIManager.instance.WinScreen(20);
+        }
+        else
+        {
+            enemysAlive = enemysWave[currentWave];
+            StartCoroutine(Posicionar());
+        }
     }
     IEnumerator Posicionar()
     {

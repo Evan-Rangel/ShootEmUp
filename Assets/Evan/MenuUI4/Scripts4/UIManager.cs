@@ -44,11 +44,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] Vector3 leftPanelPos;
     [SerializeField] Vector3 rightPanelPos;
     [SerializeField] Vector3 PausetPanelPos;
-    [ContextMenu ("doSomething()")] 
-    void doSomething()
-    {
-        WinScreen(20);
-    }
+
+    public int totalScore=0;
+
+
 
     bool isPause;
     public static UIManager instance;
@@ -173,9 +172,10 @@ public class UIManager : MonoBehaviour
         creditsPanelAnim.transform.LeanMove(creditsTargetAnim.transform.position, 20);
     }
 
-    public void UpdateScore(float newScore)
+    public void UpdateScore(int newScore)
     {
-        scoreText.text = newScore.ToString();
+        totalScore += newScore;
+        scoreText.text = totalScore.ToString();
     }
 
     public void UpdateLevel(int nameLevel)

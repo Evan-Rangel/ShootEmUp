@@ -150,6 +150,7 @@ public class ControladorDeEnemigos : MonoBehaviour
     IEnumerator desactivarEnemigo()
     {
         yield return new WaitForSeconds(animacionMorir.length);
+        UIManager.instance.UpdateScore(enemyData.Score);
         ControlOleadas.InstanceOleadas.EnemyDeath(gameObject);
         //gameObject.SetActive(false);
     }

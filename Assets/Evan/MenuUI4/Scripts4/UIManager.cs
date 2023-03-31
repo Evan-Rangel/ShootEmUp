@@ -76,11 +76,12 @@ public class UIManager : MonoBehaviour
         {
             buffsImages[i].enabled = false;
         }
-        SetHeats(3);
+        //SetHeats(3);
     }
     private void Update()
     {
         ActivePause();
+        
     }
 
     public void ActivePause()
@@ -132,12 +133,17 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < healt; i++)
         {
             hearts.Add(Instantiate(rem, healthPanel.transform));
+            hearts[i].gameObject.SetActive(true);
             hearts[i].GetComponent<Image>().enabled = true ;
-
-            hearts[i].sprite = heartImage;
+            Debug.Log("Entro");
+            hearts[i].GetComponent<Image>().sprite = heartImage;
             hearts[i].rectTransform.anchoredPosition = posImages;
             posImages.x += 50;
         }   
+    }
+    public void TakeDamage()
+    {
+        hearts.RemoveAt(hearts.Count-1);
     }
 
     public void SetDamae(int health, int score)
@@ -182,6 +188,15 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int newScore)
     {
+        if (totalScore>=800)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player117>().shotLevel = 3;
+
+        }else
+        if (totalScore >= 400)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player117>().shotLevel=2;
+        }
         totalScore += newScore;
         scoreText.text = totalScore.ToString();
     }

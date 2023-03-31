@@ -32,13 +32,13 @@ public class Player117 : MonoBehaviour
     [Header("Player Bullet Atributes")]
     [SerializeField] private float laserOffset;
     [SerializeField] float bulletSpeed;
-    [SerializeField] int shotLevel;
+    public int shotLevel;
     [SerializeField] private Transform[] shotSpawns;
     //Animaciones
     [Header("Player Animation Atributes")]
     [SerializeField] private AnimationClip animacionMorir;
     private Animator animatorPlayer;
-
+    bool godMode=false;
 
     //Sonidos
     [SerializeField] private AudioClip disparoSonido;
@@ -68,13 +68,14 @@ public class Player117 : MonoBehaviour
         colliderPlayer = GetComponent<PolygonCollider2D>();
         //Animator del Personaje
         animatorPlayer = GetComponent<Animator>();
+        UIManager.Instance.SetHeats(life);
     }
 
     void Update()
     {
         Brillo();
         //Vida del Player
-        if (life <= 0 && activarSM == false)
+        if (life <= 0 && !activarSM)
         {
             speed = 0;
             animatorPlayer.SetBool("Morir", true);
@@ -82,6 +83,11 @@ public class Player117 : MonoBehaviour
             //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(morirSonido, 0.2f);
             activarSM = true;
             StartCoroutine(desactivarPlayer());
+        }
+
+        if (playerInput.actions["GodMode"].WasPressedThisFrame() && !activarSM)
+        {
+            activarSM = true;
         }
 
         //Movimiento del Personaje
@@ -153,20 +159,24 @@ public class Player117 : MonoBehaviour
                 tiempo_brillo = 0;
             }
         }
-
         else
         {
             cronometro = 0;
             spr[1].color = color_[0];
         }
     }
-
+ 
     public void RecibirDanio(int danio)
     {
-        life = life - danio;
-        //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(dañoSonido, 0.2f);
-        Recuperarse();
-        cronometro = 1.5f;
+        if (!activarSM)
+        {
+            UIManager.Instance.TakeDamage();
+
+            life = life - danio;
+            //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(dañoSonido, 0.2f);
+            Recuperarse();
+            cronometro = 1.5f;
+        }
     }
 
     public void Recuperarse()

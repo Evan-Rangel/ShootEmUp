@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour
 {
@@ -15,10 +16,13 @@ public class TutorialScript : MonoBehaviour
 
     bool canChangeTutorial;
     float timer;
-    [SerializeField]float maxTimer;
+    [SerializeField] float maxTimer;
+
 
     private void Awake()
     {
+        
+
         timer = maxTimer;
         canChangeTutorial=false;
         triggerNumber = -1;
@@ -26,6 +30,11 @@ public class TutorialScript : MonoBehaviour
     }
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name=="UITest")
+        {
+            triggerNumber = tutorialData.Length;
+            UpdateTutorial();
+        }
         UpdateTutorial();
     }
     private void Update()

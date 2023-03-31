@@ -256,11 +256,11 @@ MonoBehaviour:
   referenciaCB: {fileID: 0}
   bulletData: {fileID: 11400000, guid: fd3cd428d20927a45845e557659ec648, type: 2}
   boundary:
-    xMin: -7.4
-    xMax: 7.4
+    xMin: -4.2
+    xMax: 4.2
     yMin: -4.4
     yMax: 4.4
-  life: 8
+  life: 3
   speed: 2
   laserOffset: 0.9
   bulletSpeed: 6

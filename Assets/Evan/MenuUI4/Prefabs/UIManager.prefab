@@ -590,7 +590,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 359067585175683125}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6765441604234168593}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &809817985651122003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6765441603797484683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6765441604234168593}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6765441603966215987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2462,7 @@ Transform:
   - {fileID: 6765441603790400316}
   - {fileID: 701634478}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6765441604234168593
 MonoBehaviour:
@@ -2477,6 +2501,7 @@ MonoBehaviour:
   finalWinScoreText: {fileID: 5562582325270419550}
   playerInput: {fileID: 6765441604234168595}
   backToGameButton: {fileID: 6765441604291427948}
+  retryButton: {fileID: 0}
   leftPanelPosTarget: {fileID: 6999648385456912646}
   rightPanelPosTarget: {fileID: 3663771881448902121}
   PausePanelPosTarget: {fileID: 1980192241}
@@ -2668,7 +2693,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6765441604291427951}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6765441604234168593}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: BackToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6765441604294430349
 GameObject:
   m_ObjectHideFlags: 0

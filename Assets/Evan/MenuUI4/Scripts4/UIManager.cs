@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -63,6 +64,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         playerInput = gameObject.GetComponent<PlayerInput>();
+        levelText.text = SceneManager.GetActiveScene().name;
     }
     private void Start()
     {
@@ -160,18 +162,14 @@ public class UIManager : MonoBehaviour
     }
     public void WinScreen(int score)
     {
+        Time.timeScale = 1;
         winScreen.SetActive(true);
         finalWinScoreText.text = score.ToString();
-        Debug.Log("Mucho Antes");
-
         StartCoroutine(DelayCredits());
-        Debug.Log("Despues");
     }
     IEnumerator DelayCredits()
     {
-        Debug.Log("Antes");
         yield return new WaitForSeconds(1);
-        Debug.Log("Hola");
         creditsPanelAnim.transform.LeanMove(creditsTargetAnim.transform.position, 20);
     }
 

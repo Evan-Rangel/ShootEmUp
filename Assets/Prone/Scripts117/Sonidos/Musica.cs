@@ -4,33 +4,18 @@ using UnityEngine;
 
 public class Musica : MonoBehaviour
 {
-    public static Musica InstanceSonidos;
     private AudioSource audioSource;
 
 
     private void Awake()
     {
-        if (InstanceSonidos == null)
-        {
-            InstanceSonidos = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(MusicaBoss());
     }
 
-    public void EjecutarMusica(AudioClip sonido, float volumen)
+    IEnumerator MusicaBoss()
     {
-        audioSource.volume = volumen;
-        audioSource.loop = true;
-        audioSource.PlayOneShot(sonido);
-    }
-
-    public void PararMusica()
-    {
-        audioSource.Stop();
+        yield return new WaitForSeconds(60);
+        audioSource.Play();
     }
 }

@@ -114,7 +114,6 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         Time.timeScale = 0;
         StopCoroutine(SetTimeScale());
-
     }
 
     public void ActiveImage(Image imageToPuth)
@@ -191,10 +190,13 @@ public class UIManager : MonoBehaviour
         if (totalScore>=800)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player117>().shotLevel = 3;
+            buffsImages[1].gameObject.SetActive(true);
 
-        }else
+        }
+        else
         if (totalScore >= 400)
         {
+            buffsImages[0].gameObject.SetActive(true);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player117>().shotLevel=2;
         }
         totalScore += newScore;

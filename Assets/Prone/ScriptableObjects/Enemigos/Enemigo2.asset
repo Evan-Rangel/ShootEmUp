@@ -19,7 +19,7 @@ MonoBehaviour:
   enemySpeed: 0
   attackType: 1
   moveAttackType: 0
-  score: 100
+  score: 200
   bulletDamage: 0
   bulletType: 0
   bulletAngleSum: 0

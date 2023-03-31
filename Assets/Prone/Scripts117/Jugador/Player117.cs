@@ -71,7 +71,7 @@ public class Player117 : MonoBehaviour
             speed = 0;
             animatorPlayer.SetBool("Morir", true);
             colliderPlayer.enabled = false;
-            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(morirSonido, 0.2f);
+            //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(morirSonido, 0.2f);
             activarSM = true;
             StartCoroutine(desactivarPlayer());
         }
@@ -85,12 +85,12 @@ public class Player117 : MonoBehaviour
         //Disparo
         if (Input.GetButtonDown("Fire1"))
         {
-            ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
+            //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
             GameObject laser;
             if (shotLevel == 1 || shotLevel == 3)
             {
                 laser = DisparoPool117.Instance.RequestLaser();
-                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
+                //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[0].position.x, shotSpawns[0].position.y) + Vector2.up * laserOffset, bulletData);
                 laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;                
                 //laser.transform.position = shotSpawns[0].transform.position + Vector3.up * laserOffset;
@@ -100,11 +100,11 @@ public class Player117 : MonoBehaviour
             if (shotLevel == 2 || shotLevel == 3)
             {
                 laser = DisparoPool117.Instance.RequestLaser();
-                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
+                //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[1].position.x, shotSpawns[1].position.y) + Vector2.up * laserOffset, bulletData);
                 laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
                 laser = DisparoPool117.Instance.RequestLaser();
-                ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
+                //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(disparoSonido, 0.15f);
                 laser.GetComponent<Disparo117>().SetPropsPlayer(new Vector2(shotSpawns[2].position.x, shotSpawns[2].position.y) + Vector2.up * laserOffset, bulletData);
                 laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
             }
@@ -156,7 +156,7 @@ public class Player117 : MonoBehaviour
     public void RecibirDanio(int danio)
     {
         life = life - danio;
-        ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(dañoSonido, 0.2f);
+        //ControladorDeSonidos.InstanceSonidos.EjecutarSonidos(dañoSonido, 0.2f);
         Recuperarse();
         cronometro = 1.5f;
     }

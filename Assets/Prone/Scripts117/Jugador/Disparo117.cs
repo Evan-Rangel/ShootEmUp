@@ -28,7 +28,6 @@ public class Disparo117 : MonoBehaviour
         {
             ResetProps();
         }
-        Debug.Log("Hola");
     }
     public void ResetProps()
     {

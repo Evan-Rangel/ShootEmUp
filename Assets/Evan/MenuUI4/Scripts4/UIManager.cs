@@ -174,15 +174,23 @@ public class UIManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "UITest")
         {
-            Time.timeScale = 1;
+            /*Time.timeScale = 1;
             winScreen.SetActive(true);
             finalWinScoreText.text = totalScore.ToString();
-            StartCoroutine(DelayCredits());
+            StartCoroutine(DelayCredits());*/
         }
         else
         {
             StartCoroutine(UltimoNivel());
         }
+    }
+
+    public void WinScreen2()
+    {
+        Time.timeScale = 1;
+        winScreen.SetActive(true);
+        finalWinScoreText.text = totalScore.ToString();
+        StartCoroutine(DelayCredits());
     }
 
     IEnumerator UltimoNivel()

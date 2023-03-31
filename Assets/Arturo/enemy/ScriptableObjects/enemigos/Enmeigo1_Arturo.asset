@@ -24,7 +24,7 @@ MonoBehaviour:
   bulletType: 1
   bulletAngleSum: 0
   bulletInitialAngle: 180
-  bulletTimer: 0.7
+  bulletTimer: 1
   numberOfProjectiles: 1
   distanceBetweenProjectiles: 4
   projectileSpeed: 2

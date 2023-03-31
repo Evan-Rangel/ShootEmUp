@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GerardoPlayer.unity
     guid: 312313e7982307b4e972581f142c97eb
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 01efe179682627149b83048f46ee29a9
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6a541b0f8d94f7a40b276bf8cda9a4ce
   m_configObjects: {}

@@ -94,11 +94,16 @@ public class UIManager : MonoBehaviour
                 panelPause.transform.LeanMove(PausePanelPosTarget.position,0.2f);
                 leftPanel.transform.LeanMove(leftPanelPosTarget.position, 0.2f);
                 rightPanel.transform.LeanMove(rightPanelPosTarget.position, 0.2f);
+                backToGameButton.gameObject.SetActive(true);
                 backToGameButton.Select();
+
                 StartCoroutine(SetTimeScale());
             }
             else
             {
+                backToGameButton.Select();
+                backToGameButton.gameObject.SetActive(false);
+
                 Time.timeScale = 1;
 
                 panelPause.transform.LeanMove(PausetPanelPos,0.2f);
@@ -175,16 +180,42 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Cargando siguiente escena.");
-            //SceneManager.LoadScene("UITest");
+            StartCoroutine(UltimoNivel());
         }
+    }
+
+    IEnumerator UltimoNivel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("UITest");
     }
     IEnumerator DelayCredits()
     {
         yield return new WaitForSeconds(1);
         creditsPanelAnim.transform.LeanMove(creditsTargetAnim.transform.position, 20);
     }
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
 
+    }
+    public void BackToGame()
+    {
+        backToGameButton.Select();
+        backToGameButton.gameObject.SetActive(false);
+
+        Time.timeScale = 1;
+
+        panelPause.transform.LeanMove(PausetPanelPos, 0.2f);
+        panelPause.transform.LeanScale(Vector3.zero, 0.2f);
+        leftPanel.transform.LeanMove(leftPanelPos, 0.2f);
+        rightPanel.transform.LeanMove(rightPanelPos, 0.2f);
+        isPause = !isPause;
+    }
     public void UpdateScore(int newScore)
     {
         if (totalScore>=800)

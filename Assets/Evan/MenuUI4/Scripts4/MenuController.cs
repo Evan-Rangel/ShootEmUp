@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     private enum PanelSelector
@@ -141,7 +142,7 @@ public class MenuController : MonoBehaviour
     }
     public void StartGameButton()
     {
-        Debug.Log("Loading Game...");
+        SceneManager.LoadScene("Level1");
     }
     public void SettingsButton()
     {

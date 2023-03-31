@@ -81,21 +81,21 @@ public class TutorialScript : MonoBehaviour
         triggerNumber++;
         if (triggerNumber>= tutorialData.Length)
         {
-            StopCoroutine(Animation());
             tutorialPanel.SetActive(false);
+            //StopCoroutine(Animation());
         }
         else
         {
-            StartCoroutine(Animation());
+            holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[0];
+            //StartCoroutine(Animation());
             holderText.text = tutorialData[triggerNumber].TutorialText;
         }
     }
     
     IEnumerator Animation()
     {
-        if (tutorialData[triggerNumber].TutorialSprite.Length>0)
+        if (triggerNumber>=tutorialData.Length)
         {
-
             for (int i = 0; i < tutorialData[triggerNumber].TutorialSprite.Length; i++)
             {
                 holderImage.sprite = tutorialData[triggerNumber].TutorialSprite[i];
@@ -105,6 +105,7 @@ public class TutorialScript : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.15f);
             }
+            StopCoroutine(Animation());
         }
         else
         {

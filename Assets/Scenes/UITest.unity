@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 2250029961047943793, guid: 3720214e70103d84bb23ef91ec7c232c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250029961047943800, guid: 3720214e70103d84bb23ef91ec7c232c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1892,6 +1896,10 @@ PrefabInstance:
     - target: {fileID: 6765441604234168592, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765441604234168595, guid: fc3e4f20467f71142949248183587341, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6765441604234168622, guid: fc3e4f20467f71142949248183587341, type: 3}
       propertyPath: m_Name

@@ -139,7 +139,6 @@ public class UIManager : MonoBehaviour
             hearts.Add(Instantiate(rem, healthPanel.transform));
             hearts[i].gameObject.SetActive(true);
             hearts[i].GetComponent<Image>().enabled = true ;
-            Debug.Log("Entro");
             hearts[i].GetComponent<Image>().sprite = heartImage;
             hearts[i].rectTransform.anchoredPosition = posImages;
             posImages.x += 50;

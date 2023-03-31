@@ -33,7 +33,6 @@ public class ControladorDeEnemigos : MonoBehaviour
     [SerializeField] private AudioClip disparoSonido;
     [SerializeField] public AudioClip dañoSonido;
     [SerializeField] public AudioClip morirSonido;
-    bool activarSM = false;
 
     private void Start()
     {

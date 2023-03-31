@@ -159,6 +159,7 @@ public class MenuController : MonoBehaviour
     }
     public void ExitButton()
     {
+        Application.Quit();
         Debug.Log("Exit...");
     }  
     public void ResolutionButton()

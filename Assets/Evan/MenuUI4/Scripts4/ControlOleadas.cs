@@ -52,8 +52,8 @@ public class ControlOleadas : MonoBehaviour
         currentWave++;
         if (currentWave>= enemysWave.Length)
         {
-
-            //UIManager.instance.WinScreen();
+            
+            UIManager.instance.WinScreen();
         }
         else
         {
@@ -65,17 +65,17 @@ public class ControlOleadas : MonoBehaviour
     {
         for (int i = 0; i < enemysWave[currentWave]; i++)
         {
-            if (waveObjects[i].GetComponent<ControladorBosses>())
+           // if (waveObjects[i].GetComponent<ControladorBosses>())
             {
-                waveObjects[i].GetComponent<ControladorBosses>().enabled = true;
+             //   waveObjects[i].GetComponent<ControladorBosses>().enabled = true;
             }
-            else
+           // else
             {
                 waveObjects[i].GetComponent<ControladorMovimiento>().enabled = true;
             }
         }
         yield return new WaitForSeconds(3);
-        if (!waveObjects[0].GetComponent<ControladorBosses>())
+        //if (!waveObjects[0].GetComponent<ControladorBosses>())
         {
             ActivarColliders();
         }

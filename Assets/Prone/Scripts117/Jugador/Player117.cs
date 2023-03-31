@@ -23,7 +23,6 @@ public class Player117 : MonoBehaviour
     [SerializeField] int life;
     [SerializeField] private float speed;
     float moveX;
-    float moveY;
     private Vector2 moveInput;
     private PolygonCollider2D colliderPlayer;
     private Rigidbody2D rb;
@@ -38,7 +37,6 @@ public class Player117 : MonoBehaviour
     [Header("Player Animation Atributes")]
     [SerializeField] private AnimationClip animacionMorir;
     private Animator animatorPlayer;
-    bool godMode=false;
 
     //Sonidos
     [SerializeField] private AudioClip disparoSonido;
@@ -47,7 +45,6 @@ public class Player117 : MonoBehaviour
     [SerializeField] private AudioClip bossMusic;
     [SerializeField] private AudioClip bossGanaste;
     bool activarSM = false;
-    bool doOnce = true;
 
     //Animacion de Parpadeo
     public float tiempo_brillo;
@@ -69,6 +66,7 @@ public class Player117 : MonoBehaviour
         //Animator del Personaje
         animatorPlayer = GetComponent<Animator>();
         UIManager.Instance.SetHeats(life);
+        playerInput.currentActionMap = playerInput.actions.actionMaps[0];
     }
 
     void Update()
@@ -93,7 +91,6 @@ public class Player117 : MonoBehaviour
 
         //Movimiento del Personaje
         moveX = playerInput.actions["Move"].ReadValue<Vector2>().x;
-        moveY = playerInput.actions["Move"].ReadValue<Vector2>().y;
         animatorPlayer.SetFloat("MovX", moveX); //Animacion del Personaje
         moveInput = playerInput.actions["Move"].ReadValue<Vector2>().normalized;
 

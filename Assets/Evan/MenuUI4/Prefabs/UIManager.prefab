@@ -2501,7 +2501,7 @@ MonoBehaviour:
   finalWinScoreText: {fileID: 5562582325270419550}
   playerInput: {fileID: 6765441604234168595}
   backToGameButton: {fileID: 6765441604291427948}
-  retryButton: {fileID: 0}
+  retryButton: {fileID: 8107152788745868271}
   leftPanelPosTarget: {fileID: 6999648385456912646}
   rightPanelPosTarget: {fileID: 3663771881448902121}
   PausePanelPosTarget: {fileID: 1980192241}

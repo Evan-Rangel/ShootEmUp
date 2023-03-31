@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   description: 
-  enemyHealth: 0
+  enemyHealth: 5
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 0
+  attackType: 1
   moveAttackType: 0
   bulletDamage: 0
   bulletType: 0
   bulletAngleSum: 0
-  bulletInitialAngle: 0
-  bulletTimer: 0
-  numberOfProjectiles: 0
+  bulletInitialAngle: 180
+  bulletTimer: 1
+  numberOfProjectiles: 1
   distanceBetweenProjectiles: 0
-  projectileSpeed: 0
+  projectileSpeed: 3
   enemyPrefab: {fileID: 0}
-  bulletData: {fileID: 0}
+  bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}

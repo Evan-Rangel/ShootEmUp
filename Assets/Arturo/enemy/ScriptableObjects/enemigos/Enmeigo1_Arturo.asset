@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0aeda24ba47cda4e854e21a65f15b58, type: 3}
-  m_Name: EnemigoDispara1
+  m_Name: Enmeigo1_Arturo
   m_EditorClassIdentifier: 
-  enemyName: Enemigo1
-  description: Enemigo de Numero 1 que dispara en una direccion
-  enemyHealth: 6
+  enemyName: Enemigo 1 (Arturo)
+  description: enemigo con movimiento para el segundo nivel
+  enemyHealth: 3
   enemyDamage: 0
   enemySpeed: 0
-  attackType: 3
+  attackType: 4
   moveAttackType: 0
-  bulletDamage: 0
-  bulletType: 1
-  bulletAngleSum: 80
-  bulletInitialAngle: 45
-  bulletTimer: 0.2
+  bulletDamage: 2
+  bulletType: 2
+  bulletAngleSum: 1
+  bulletInitialAngle: 23
+  bulletTimer: 2
   numberOfProjectiles: 5
-  distanceBetweenProjectiles: 20
+  distanceBetweenProjectiles: 9
   projectileSpeed: 2
-  enemyPrefab: {fileID: 2158766264638325406, guid: 87dbf591f7fd6df41abcb53e98a8e6a0, type: 3}
+  enemyPrefab: {fileID: 3332690132904571883, guid: d96960ab6bc089942a99726ab635ef65, type: 3}
   bulletData: {fileID: 11400000, guid: 53e69421d0546f64f831558031a4a23d, type: 2}
